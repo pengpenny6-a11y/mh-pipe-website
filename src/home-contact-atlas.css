@@ -1,0 +1,111 @@
+.precision-home > .mh-contact-atlas {
+  --chapter-gap:0;
+  --mh-contact-amber:#ffd39a;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  color:white;
+  background:linear-gradient(107deg,#102b64 0%,#14357b 48%,#194399 100%);
+}
+.mh-contact-atlas-alias {position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none}
+.mh-contact-atlas-grid {
+  display:grid;
+  min-block-size:var(--home-screen);
+  grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);
+  align-items:center;
+  gap:clamp(25px,3.1vw,60px);
+  margin-inline:auto;
+  max-width:1940px;
+  padding:var(--home-nav-clearance) clamp(30px,6vw,115px) clamp(32px,8svh,90px);
+}
+.mh-contact-atlas-copy {position:relative;z-index:2;align-self:center}
+.mh-contact-atlas-copy h2 {margin:0;color:#fff}
+.mh-contact-atlas-copy .mh-heading-english {color:#dce6ff;opacity:1}
+.mh-contact-intents {
+  display:inline-flex;align-items:center;position:relative;gap:clamp(16px,1.5vw,28px);
+  max-width:100%;padding:0;margin:clamp(20px,1.9vw,35px) 0 0;border:0;
+}
+.mh-contact-screenreader {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.mh-contact-intents label {
+  display:inline-flex;align-items:center;gap:9px;min-height:42px;cursor:pointer;
+  font:600 var(--mh-type-ui)/1.4 var(--mh-font-text);white-space:nowrap;color:#c6d7f0;
+}
+.mh-contact-intents input {
+  appearance:none;display:block;align-self:center;flex:none;margin:0;padding:0;
+  width:16px;height:16px;border:1.5px solid #b3c4df;border-radius:100%;background:transparent;
+}
+.mh-contact-intents input:checked {border-color:#fff;background:#fff;box-shadow:inset 0 0 0 3.5px #193976}
+.mh-contact-intents input:checked + span,.mh-contact-intents label:hover {color:#fff}
+.mh-contact-intent-copy {
+  max-width:36ch;min-height:3.3em;margin:3px 0 0;color:#dbe7fa;
+  font:400 var(--mh-type-body)/1.65 var(--mh-font-text);text-wrap:pretty;
+}
+.mh-contact-atlas-action {
+  width:max-content;min-height:46px;margin-top:clamp(10px,1.4vw,25px);padding:11px 18px;
+  display:inline-flex;align-items:center;gap:clamp(22px,2.6vw,47px);
+  background:var(--mh-contact-amber);color:#132c60;
+  text-decoration:none;font:650 var(--mh-type-ui)/1.4 var(--mh-font-text);
+  transition:background .23s;
+}
+.mh-contact-atlas-action:is(:hover,:focus-visible){background:#ffe5c0;color:#0b224f}
+.mh-contact-atlas :is(a,button,input):focus-visible {outline:2px solid #fff;outline-offset:4px}
+.mh-contact-market {min-width:0}
+.mh-contact-market-prompt {
+  display:flex;align-items:baseline;gap:10px;justify-content:flex-end;
+  color:#f0f6ff;font:600 var(--mh-type-ui)/1.4 var(--mh-font-text);margin:0 0 5px;
+}
+.mh-contact-market-prompt span {font:400 var(--mh-type-note)/1.4 var(--mh-font-text);color:#c4d5f3}
+.mh-contact-map {position:relative;width:100%;aspect-ratio:1000/445;isolation:isolate}
+.mh-contact-land {position:absolute;inset:0;display:block;width:100%;height:100%;user-select:none;pointer-events:none}
+.mh-contact-market-pin {
+  position:absolute;z-index:1;display:grid;place-items:center;transform:translate(-50%,-50%);
+  width:36px;height:36px;min-height:0;padding:0;border:0;background:none;color:#fff;cursor:pointer;
+}
+.mh-contact-dot {
+  display:block;position:relative;width:9px;height:9px;
+  border-radius:50%;background:currentColor;box-shadow:0 0 0 2px #173a77;
+}
+.mh-contact-dot::after {
+  content:'';position:absolute;inset:-5px;border:1px solid currentColor;border-radius:50%;
+  opacity:0;transform:scale(.75);transition:transform .32s,opacity .24s;
+}
+.mh-contact-market-name {
+  display:block;position:absolute;top:calc(50% + 11px);left:50%;transform:translateX(-50%);
+  width:max-content;max-width:145px;background:#153775ed;color:inherit;padding:2px 5px;
+  text-align:center;font:600 var(--mh-type-note)/1.35 var(--mh-font-text);
+}
+.mh-contact-market-pin[aria-pressed=true] {color:var(--mh-contact-amber)}
+.mh-contact-market-pin:is(:hover,:focus-visible),.mh-contact-market-pin[aria-pressed=true] {z-index:2}
+.mh-contact-market-pin:is(:hover,:focus-visible) .mh-contact-dot::after,
+.mh-contact-market-pin[aria-pressed=true] .mh-contact-dot::after {opacity:1;transform:scale(1)}
+.mh-contact-market-pin[aria-pressed=true] .mh-contact-market-name {color:var(--mh-contact-amber);background:#102c64}
+@media(prefers-reduced-motion:no-preference){
+  .mh-contact-atlas[data-arrived=true] .mh-contact-land {animation:mh-contact-survey 1.05s cubic-bezier(.2,.68,.25,1) both}
+  .mh-contact-atlas[data-arrived=true] .mh-contact-market-pin {animation:mh-contact-locate .5s cubic-bezier(.18,.7,.27,1) backwards}
+  .mh-contact-atlas[data-arrived=true] .mh-contact-pin-1 {animation-delay:.065s}
+  .mh-contact-atlas[data-arrived=true] .mh-contact-pin-2 {animation-delay:.125s}
+  .mh-contact-atlas[data-arrived=true] .mh-contact-pin-3 {animation-delay:.18s}
+  .mh-contact-atlas[data-arrived=true] .mh-contact-pin-4 {animation-delay:.24s}
+  .mh-contact-atlas[data-arrived=true] .mh-contact-pin-5 {animation-delay:.30s}
+  .mh-contact-intent-copy {animation:mh-contact-copy-in .3s ease-out}
+  .mh-contact-atlas-action svg {transition:transform .28s cubic-bezier(.22,.8,.24,1)}
+  .mh-contact-atlas-action:is(:hover,:focus-visible) svg {transform:translate(2px,-2px)}
+  @keyframes mh-contact-survey {from{opacity:.42;clip-path:inset(0 96% 0 0)}to{opacity:1;clip-path:inset(0)}}
+  @keyframes mh-contact-locate {from{opacity:.25}to{opacity:1}}
+  @keyframes mh-contact-copy-in {from{opacity:.5;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+}
+@media(max-width:930px) {
+  .mh-contact-atlas-grid {grid-template-columns:minmax(0,.83fr) minmax(0,1.17fr);padding-inline:4vw;gap:22px}
+  .mh-contact-market-name {font-size:12px;max-width:96px}
+}
+@media(max-width:690px) {
+  .mh-contact-atlas-grid {grid-template-columns:minmax(0,1fr);align-content:center;gap:clamp(24px,7svh,66px);padding:var(--home-nav-clearance) 20px 42px}
+  .mh-contact-market-prompt {justify-content:flex-start;margin-bottom:14px}
+  .mh-contact-intent-copy {min-height:0}
+  .mh-contact-atlas-action {margin-top:18px}
+  .mh-contact-market-name {font-size:11px;max-width:78px}
+  .mh-contact-market-pin {min-width:32px}
+}
+@media(prefers-reduced-motion:reduce){
+  .mh-contact-atlas *,.mh-contact-atlas *::after {animation:none!important;transition:none!important}
+}

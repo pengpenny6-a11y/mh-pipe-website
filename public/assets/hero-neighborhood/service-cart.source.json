@@ -1,0 +1,8 @@
+{
+  "asset": "service-cart.png",
+  "source": "/Users/penny/.codex/generated_images/01a1b585-405d-7fe2-a6a3-90c86c1e3209/exec-4ffdaed4-3391-47ec-81f4-9975bef71800.png",
+  "method": "Built-in ImageGen; lossless alpha bounds crop with Sharp",
+  "reference": "outputs/application-scene-concepts/01-miniature-neighborhood.png",
+  "purpose": "Illustrative miniature service vehicle sprite, not a photograph of company staff",
+  "prompt": "Isolate only the tiny amber-yellow industrial electric service cart with its seated navy-clad driver and yellow hardhat, raised waving hand, rear gray cargo box, front pointing right, matching refined miniature 3D architectural reference. Full vehicle and wheels. True transparent alpha, faint contact shadow, no buildings, platform, road, floor rectangle, background or text."
+}

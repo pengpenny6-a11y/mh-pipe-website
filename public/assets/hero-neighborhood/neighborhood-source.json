@@ -1,0 +1,13 @@
+{
+  "asset": "neighborhood.png",
+  "type": "AI-generated illustrative miniature; not an installation drawing or actual MH PIPE facility",
+  "tool": "Built-in ImageGen",
+  "reference": "outputs/application-scene-concepts/01-miniature-neighborhood.png",
+  "generatedSource": "/Users/penny/.codex/generated_images/01a1b585-1346-7020-afa4-de60014d50ef/exec-2fce0eba-ae52-4305-a81b-eeb7e6f61366.png",
+  "dimensions": {
+    "width": 1774,
+    "height": 887,
+    "alpha": true
+  },
+  "prompt": "Extract ONLY the miniature lower-right three-building neighborhood from selected mock. Preserve exact architecture, camera, proportions, arrangement and premium miniature rendering: left white home with navy pitched roof, warm cutaway kitchen, separate yellow gas line and meter, red fire cupboard; rear taller workshop with white robot and worker; right white glass data center with cyan cooling lines. Remove yellow cart and driver for separate animation. Preserve thin pads and soft transparent contact shadows. Genuine transparent background. Remove all page text, logo, pipes and background. No new buildings, trees, interbuilding pipes, decoration or technical claims."
+}

@@ -1,0 +1,136 @@
+.ring-studio-gallery {
+  width:100%;
+  height:100%;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) clamp(90px,8vw,138px);
+  column-gap:clamp(8px,2.2vw,48px);
+  padding-right:var(--series-inset);
+  box-sizing:border-box;
+}
+
+.ring-studio-feature {
+  position:relative;
+  width:100%;
+  height:100%;
+  container-type:size;
+}
+
+.ring-studio-exposure {
+  --photo-aspect:1.242;
+  --photo-width:700px;
+  --outline:polygon(1% 25%,7% 11%,15% 2%,21% 1%,97% 66%,99% 73%,95% 88%,88% 98%,82% 99%,3% 43%);
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  pointer-events:none;
+  opacity:0;
+  transform:translate(-10px,4px) scale(.985);
+  transition:opacity .22s ease,transform .38s cubic-bezier(.22,.7,.25,1);
+}
+
+.ring-studio-exposure[data-shape="tee"] {
+  --photo-aspect:1.252;
+  --photo-width:665px;
+  --outline:polygon(0 20%,6% 7%,15% 1%,20% 3%,100% 65%,99% 79%,90% 97%,84% 99%,50% 69%,26% 100%,16% 97%,8% 84%,4% 74%,5% 68%,29% 46%,3% 32%);
+}
+
+.ring-studio-exposure[data-shape="elbow"] {
+  --photo-aspect:.876;
+  --photo-width:545px;
+  --outline:polygon(4% 0,42% 8%,62% 15%,80% 29%,94% 45%,99% 61%,95% 94%,89% 98%,76% 100%,65% 96%,61% 90%,69% 57%,64% 44%,47% 34%,0 30%);
+}
+
+.ring-studio-exposure[data-current="true"] {
+  opacity:1;
+  transform:translate(0,0) scale(1);
+  z-index:1;
+}
+
+.ring-studio-object {
+  position:relative;
+  display:block;
+  width:min(97cqw,calc(86cqh * var(--photo-aspect)),var(--photo-width));
+  aspect-ratio:var(--photo-aspect);
+}
+.ring-studio-product {
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  border:0;
+  padding:0;
+  background:transparent;
+  clip-path:var(--outline);
+  cursor:zoom-in;
+}
+
+.ring-studio-exposure[data-current="true"] .ring-studio-product {pointer-events:auto}
+.ring-studio-object img {width:100%;height:100%;object-fit:contain;display:block}
+.ring-studio-comparison {
+  position:absolute;z-index:3;bottom:8px;inset-inline:0;display:flex;
+  align-items:center;justify-content:center;gap:13px;color:#526071;
+  font-weight:500;font-size:clamp(13px,1vw,16px);line-height:1.35;
+}
+.ring-studio-comparison button {
+  padding:7px 0;border:0;background:transparent;color:var(--ph-ink);
+  font:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#848fb0;
+}
+.ring-studio-exposure:has(.ring-studio-product:focus-visible) {filter:drop-shadow(0 0 3px #264d7e)}
+.ring-studio-choices {display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,2.2vh,27px)}
+.ring-studio-choices button {
+  width:100%;
+  border:0;
+  border-radius:0;
+  padding:4px 2px 6px;
+  background:transparent;
+  color:#4a5867;
+  text-align:center;
+  cursor:pointer;
+}
+.ring-studio-mini {
+  height:clamp(45px,4.3vw,75px);
+  display:grid;
+  grid-template: minmax(0,1fr) / minmax(0,1fr);
+  min-height:0;
+  place-items:center;
+  margin-bottom:10px;
+}
+.ring-studio-mini img {
+  display:block;
+  width:auto;max-width:88%;
+  height:100%;min-height:0;max-height:100%;
+  object-fit:contain;
+  transition:transform .32s cubic-bezier(.2,.75,.25,1);
+}
+.ring-studio-choices button:is(:hover,:focus-visible) img {transform:translateY(-3px) rotate(-3deg)}
+.ring-studio-label {
+  display:inline-block;
+  position:relative;
+  padding-bottom:5px;
+  font-size:clamp(14px,1.05vw,18px);
+  line-height:1.3;
+  font-weight:510;
+}
+.ring-studio-label::after {
+  content:'';
+  position:absolute;
+  left:50%;bottom:0;
+  width:16px;height:2px;
+  background:#a67643;
+  transform:translateX(-50%) scaleX(0);
+  transition:transform .25s ease;
+}
+.ring-studio-choices [aria-pressed="true"] .ring-studio-label {color:var(--ph-ink,#182d6e);font-weight:670}
+.ring-studio-choices [aria-pressed="true"] .ring-studio-label::after {transform:translateX(-50%) scaleX(1)}
+@media (max-width:600px) {
+  .ring-studio-comparison {bottom:0;gap:8px}
+  .ring-studio-object {width:min(89cqw,calc(72cqh * var(--photo-aspect)),var(--photo-width))}
+  .ring-studio-gallery {grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto;gap:4px;padding:0 18px}
+  .ring-studio-choices {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .ring-studio-choices button {padding:0}
+  .ring-studio-mini {height:34px;margin-bottom:2px}
+  .ring-studio-label {font-size:13px}
+}
+@media (prefers-reduced-motion:reduce) {
+  .ring-studio-exposure,.ring-studio-mini img,.ring-studio-label::after {transition:none}
+  .ring-studio-exposure,.ring-studio-choices button:is(:hover,:focus-visible) img {transform:none}
+}

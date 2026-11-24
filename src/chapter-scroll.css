@@ -1,0 +1,23 @@
+/* Chapter-sized composition, without nested scroll areas or fixed overlays.
+   Content is allowed to grow at short heights/zoom; the controller reads it. */
+@media(min-width:1000px) and (pointer:fine){
+ .site-content .route-content .precision-home[data-chapter-scroll=true]{--chapter-height:calc(100svh - 96px)}
+ .precision-home[data-chapter-scroll=true]>:not(.sh-hero){min-height:100svh;box-sizing:border-box;margin-top:0;margin-bottom:0}
+ .site-content .route-content .precision-home[data-chapter-scroll=true] .pa-spatial{padding:128px 0 20px}
+ .precision-home[data-chapter-scroll=true] .spa-stage{height:max(460px,calc(var(--chapter-height) - 126px))}
+ .site-content .route-content .precision-home[data-chapter-scroll=true] .hpch-root{padding:134px 0 24px}
+ .site-content .route-content .precision-home[data-chapter-scroll=true] .hpch-stage{height:max(320px,calc(var(--chapter-height) - 290px));margin-top:14px}
+ .precision-home[data-chapter-scroll=true] .hc-about-scene{height:max(566px,var(--chapter-height))}
+ .precision-home[data-chapter-scroll=true] .hc-about-heading{top:138px}
+ .precision-home[data-chapter-scroll=true] .hc-strength{padding-top:128px;padding-bottom:24px}
+ .site-content .route-content .precision-home[data-chapter-scroll=true] .hc-metrics{margin-top:24px}
+ .precision-home[data-chapter-scroll=true] .hc-strength-source{margin:14px 0 18px}
+ .precision-home[data-chapter-scroll=true] .hc-factory-gallery{height:max(235px,calc(var(--chapter-height) - 425px))}
+ .site-content .route-content .precision-home[data-chapter-scroll=true] .hce-partners{padding:144px 0 48px;display:flex;flex-direction:column;justify-content:center}
+ .site-content .route-content .precision-home[data-chapter-scroll=true] .hce-news{padding-top:134px;padding-bottom:36px;display:flex;flex-direction:column;justify-content:center}
+ .precision-home[data-chapter-scroll=true] .hce-section-heading{margin-bottom:32px}
+ .precision-home[data-chapter-scroll=true] .hce-news-feature{min-height:360px}
+ .precision-home[data-chapter-scroll=true] .hce-news-layout{min-height:max(360px,calc(var(--chapter-height) - 244px))}
+ .site-content .route-content .precision-home[data-chapter-scroll=true] .hce-contact{margin-bottom:0;padding-top:174px}
+ .is-precision-home .precision-home[data-chapter-scroll=true] footer.hce-footer{display:flex;flex-direction:column;justify-content:space-between;padding-top:148px}
+}

@@ -1,0 +1,102 @@
+/* An integer frame keeps every view centred, even when a turn is reversed. */
+@property --app-scene-frame {
+  syntax: '<integer>';
+  inherits: false;
+  initial-value: 0;
+}
+
+#applications .app-scene-rail {
+  --sample-size:clamp(78px,6.5vw,110px);
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:clamp(8px,1.4vw,24px);
+  width:min(89%,1280px);
+  margin-inline:auto;
+}
+
+#applications .app-scene-rail button {
+  appearance:none;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:clamp(8px,.85vw,16px);
+  padding:4px 2px;
+  min-width:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  color:#384353;
+  font:550 clamp(15px,1.22vw,20px)/1.3 Archivo,'PingFang SC','Microsoft YaHei',sans-serif;
+}
+#applications .app-scene-sample {
+  display:block;
+  position:relative;
+  isolation:isolate;
+  width:var(--sample-size);
+  aspect-ratio:1;
+}
+#applications .app-scene-sample::before {
+  content:'';
+  position:absolute;
+  inset:3% 0;
+  border-radius:50%;
+  background:radial-gradient(ellipse at 52% 78%,#dce7f4 0%,#ecf2fa 46%,#f5f8fb 78%);
+  opacity:0;
+  transform:scale(.84);
+  transition:opacity .28s ease,transform .4s ease;
+}
+#applications .app-scene-object {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:calc(var(--app-scene-frame) * 100% / 12) center;
+  transition:--app-scene-frame .5s cubic-bezier(.33,.04,.22,1),transform .4s cubic-bezier(.22,.7,.25,1);
+}
+#applications .app-scene-rail-name {
+  padding:.34em .88em .38em;
+  border-radius:100px;
+  text-align:center;
+  white-space:nowrap;
+  transition:color .23s ease,background-color .23s ease;
+}
+#applications .app-scene-rail button[aria-current=true] .app-scene-sample::before,
+#applications .app-scene-rail button:focus-visible .app-scene-sample::before {
+  transform:scale(1);
+  opacity:1;
+}
+#applications .app-scene-rail button[aria-current=true] .app-scene-rail-name {
+  color:white;
+  background:#172d83;
+}
+#applications .app-scene-rail button:focus-visible {
+  outline:2px solid #234883;
+  outline-offset:4px;
+  border-radius:12px;
+}
+@media (hover:hover) {
+  #applications .app-scene-rail button:hover .app-scene-sample::before {opacity:1;transform:scale(1)}
+  #applications .app-scene-rail button:not([aria-current]):hover .app-scene-rail-name {color:#172d83;background:#edf2fa}
+}
+@media (prefers-reduced-motion:no-preference) {
+  #applications .app-scene-rail button:focus-visible .app-scene-object {--app-scene-frame:12;transform:translateY(-3px)}
+}
+@media (hover:hover) and (prefers-reduced-motion:no-preference) {
+  #applications .app-scene-rail button:hover .app-scene-object {--app-scene-frame:12;transform:translateY(-3px)}
+}
+@media (max-width:1000px) {
+  #applications .app-scene-rail {width:94%;--sample-size:76px;gap:6px}
+  #applications .app-scene-rail button {font-size:14px}
+  #applications .app-scene-rail-name {padding-inline:.45em}
+}
+@media (max-width:690px) {
+  #applications .app-scene-rail {grid-template-columns:repeat(3,minmax(0,1fr));row-gap:13px;--sample-size:64px}
+  #applications .app-scene-rail button {gap:3px}
+}
+@media (prefers-reduced-motion:reduce) {
+  #applications .app-scene-object,
+  #applications .app-scene-sample::before,
+  #applications .app-scene-rail-name {transition:none}
+}

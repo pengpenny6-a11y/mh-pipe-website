@@ -1,0 +1,77 @@
+/* Content roles are scoped to the live site. Artwork, wordmarks, headings and
+   controls that carry a whole card keep their own internal typography. */
+#root .route-content :is(
+  .ap-story-heading > p, .pd-range-head > p, .co-intro > div > p,
+  .snw-heading > p, .cd-hero-email > p, .mf-introduction > p,
+  .hce-contact-copy .section-summary
+) {
+  font-family:var(--mh-font-text);
+  font-size:var(--mh-type-lead);
+  font-weight:var(--mh-weight-body);
+  line-height:var(--mh-leading-body);
+}
+
+#root .site-content .route-content :is(
+  .app-copy, .series-caption-selection > p, .mh-company-profile > p, .mh-support-copy,
+  .ridge-copy > p, .mh-atlas__intro > p, .hmf-description > p,
+  .ad-intro, .ad-zone-detail p, .ad-brief-head > p,
+  .pd-product-use > p, .pd-range-advice p, .pd-config-head > p,
+  .ss-panel-copy > p, .sd-section-heading > p, .sd-support-intro > p:not(.sd-support-note),
+  .sd-question .sd-expand-inner > p, .cd-record-copy > p, .cd-work-description > p,
+  .nw-record-inner p, .nd-heading > p, .nd-summary, .nd-detail-lead p, .nd-item p,
+  .md-stage-copy > p, .md-heading > p, .cd-current-caption > p, .cd-location-copy address
+),
+.modal-backdrop :is(.ridge-document-text > p, .detail-copy > p:not([class])) {
+  font-family:var(--mh-font-text);
+  font-size:var(--mh-type-body);
+  font-weight:var(--mh-weight-body);
+  line-height:var(--mh-leading-body);
+}
+
+#root :is(
+  .sn-link-label, .sn-actions .language-switch, .sn-actions .inquiry-count,
+  .app-scene-rail-name, .app-solution, .app-view-toggle, .series-tabs button,
+  .series-catalog, .mh-brochure, .mh-support-link > strong,
+  .hmf-link, .hce-text-link, .hce-visit-inquiry,
+  .pd-family-tabs button, .pd-text-action, .pd-choose, .pd-submit,
+  .ap-explore, .ap-node-details, .ad-context-top > a,
+  .ss-inquiry, .sd-support-action, .cd-work-tabs button, .cd-record-copy > a,
+  .nw-standard-heading button, .nw-article-link, .nd-read, .nd-download,
+  .md-inquiry, .cd-intent-tabs button, .cd-email-action, .cd-download-action
+),
+:is(.route-content, .modal-backdrop) form :is(label,legend) {
+  font-family:var(--mh-font-text);
+  font-size:var(--mh-type-ui);
+  font-weight:var(--mh-weight-ui);
+  line-height:var(--mh-leading-ui);
+}
+
+:is(.route-content, .modal-backdrop) form :is(input:not([type=checkbox], [type=radio]),select,textarea) {
+  font-family:var(--mh-font-text);
+  font-size:var(--mh-type-body);
+  font-weight:var(--mh-weight-body);
+  line-height:var(--mh-leading-ui);
+}
+
+#root .route-content :is(
+  .series-illustration-note, .mh-intro-fact dt > span,
+  .mh-atlas__facts dt, .hmf-source, .hce-case-date, .co-source, .co-photo figcaption,
+  .pd-fit-note, .ss-caption, .sd-support-note, .cd-record-copy > small,
+  .nw-article-meta, .nd-category, .mh-exhibition-report figcaption,
+  .cd-image-note, .cd-channel-note, .cd-form-state, .cd-saved
+),
+.modal-backdrop :is(.technical-note,.detail-photo-source,.ridge-document figcaption,.form-note) {
+  font-family:var(--mh-font-text);
+  font-size:var(--mh-type-note);
+  font-weight:var(--mh-weight-body);
+  line-height:var(--mh-leading-note);
+}
+
+#root .route-content :is(.mh-intro-fact dd, .mh-atlas__facts dd, .hmf-stat strong b, .co-metric strong) {
+  font-family:var(--mh-font-number);
+  font-size:var(--mh-type-data);
+  font-weight:var(--mh-weight-data);
+  font-variant-numeric:lining-nums tabular-nums;
+  letter-spacing:var(--mh-tracking-data);
+  line-height:1;
+}

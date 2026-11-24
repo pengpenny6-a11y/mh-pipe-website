@@ -1,0 +1,36 @@
+.wall-study {
+  position:relative; width:100%; height:100%; min-width:0; min-height:0;
+  display:grid; place-items:center; container-type:size;
+}
+.wall-film-frame {position:relative;width:min(100cqw,160cqh);aspect-ratio:8/5;isolation:isolate}
+.wall-film-poster,.wall-film {position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.wall-film-poster[data-current=false],.wall-film:not([data-playing=true]) {visibility:hidden}
+.home-series[data-series='thick-wall'] .series-art {mix-blend-mode:multiply}
+.wall-film[data-playing=true] {z-index:1}
+.wall-dimensions {
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  opacity:1;transition:opacity .3s ease;
+}
+.wall-dimensions[aria-hidden=true] {opacity:0;visibility:hidden}
+.wall-dimensions svg {position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.wall-dimensions path {vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+.wall-witnesses {stroke:#667887;stroke-opacity:.54;stroke-width:.8}
+.wall-measures {stroke:#263f54;stroke-width:1.15}
+.wall-label {
+  display:block;position:absolute;font-family:inherit;font-size:clamp(13px,1.14vw,20px);
+  font-weight:580;line-height:1.2;letter-spacing:-.012em;color:#243c50;
+}
+.wall-label-od {right:77.1%;top:48.9%;transform:translateY(-50%);text-align:right}
+.wall-label-thickness {left:70.4%;top:19.7%;transform:translateY(-50%)}
+.wall-turn {
+  position:absolute;z-index:3;left:47.15%;top:49.2%;transform:translate(-50%,-50%);
+  width:44px;height:44px;border:1px solid #efefef85;border-radius:50%;display:grid;place-items:center;
+  background:#25313e70;color:#fff;padding:0;transition:background .24s,opacity .26s;
+}
+.wall-turn:hover,.wall-turn:focus-visible {background:#172c42d9}
+.wall-study[data-pose=side] .wall-turn {left:21.25%;top:57.1%}
+.wall-turn[aria-disabled=true] {opacity:0;pointer-events:none}
+.home-series .wall-turn:focus-visible {outline:2px solid #fff;outline-offset:3px;box-shadow:0 0 0 6px #233c4f}
+@media (prefers-reduced-motion:reduce) {
+  .wall-turn,.wall-dimensions {transition:none}
+}

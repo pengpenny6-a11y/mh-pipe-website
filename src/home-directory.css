@@ -1,0 +1,114 @@
+.precision-home > footer.mh-colophon,
+.site-content > footer.mh-colophon {
+  --chapter-gap:0;
+  --directory-ink:#172c55;
+  --directory-blue:#193f94;
+  display:block;
+  margin-block-start:0;
+  padding:0 clamp(24px,5.7vw,112px);
+  border:0;
+  background:#f4f6f8;
+  color:var(--directory-ink);
+  font-family:var(--mh-font-text);
+}
+.mh-colophon-inner {max-width:1770px;margin-inline:auto}
+.mh-colophon-menu {
+  display:flex;align-items:center;justify-content:space-between;gap:28px;
+  padding-block:clamp(16px,1.8vw,28px);
+  border-bottom:1px solid #bdc7d4;
+}
+.mh-colophon-nav {
+  display:flex;align-items:center;justify-content:space-between;
+  width:min(73%,1070px);gap:clamp(13px,2vw,40px);
+}
+.mh-colophon-nav a {
+  position:relative;display:inline-flex;align-items:center;min-height:40px;
+  color:var(--directory-ink);font-weight:600;font-size:var(--mh-type-ui);line-height:1.3;
+}
+.mh-colophon-nav a::after {
+  content:'';position:absolute;left:0;right:0;bottom:4px;height:2px;
+  background:var(--directory-blue);transform:scaleX(0);transform-origin:0 50%;
+  transition:transform .26s cubic-bezier(.18,.65,.26,1);
+}
+.mh-colophon-nav a:is(:hover,:focus-visible)::after {transform:scaleX(1)}
+.mh-colophon .mh-colophon-top {
+  color:var(--directory-blue);display:inline-flex;align-items:center;justify-content:flex-end;gap:12px;
+  flex-shrink:0;min-height:40px;padding:2px 0;
+  font:600 var(--mh-type-ui)/1.3 var(--mh-font-text);
+}
+.mh-colophon-top svg {transition:transform .3s}
+.mh-colophon-top:is(:hover,:focus-visible) svg {transform:translateY(-3px)}
+.mh-colophon-body {
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(460px,.9fr);align-items:center;
+  gap:clamp(30px,5vw,88px);padding:clamp(28px,3.8vw,72px) 0 clamp(32px,4.4vw,78px);
+}
+.mh-colophon-wordmark {
+  display:inline-block;color:#18357e;white-space:nowrap;
+  font:780 clamp(49px,4.8vw,86px)/.88 var(--mh-font-number);
+  font-stretch:111%;letter-spacing:-.073em;
+}
+.mh-colophon-identity {
+  margin-top:clamp(17px,1.75vw,27px);
+  font:500 var(--mh-type-note)/1.58 var(--mh-font-text);
+}
+.mh-colophon-identity>span {display:block;color:#233657;font-weight:600}
+.mh-colophon-identity address {max-width:53ch;color:#506078;font:inherit;margin:3px 0 0}
+.mh-colophon-identity a {
+  display:inline-flex;align-items:center;min-height:32px;
+  color:var(--directory-blue);font:600 var(--mh-type-ui)/1.3 var(--mh-font-text);
+}
+.mh-colophon-identity a:is(:hover,:focus-visible) {text-decoration:underline;text-underline-offset:3px}
+.mh-colophon-files {
+  display:grid;grid-template-columns:minmax(96px,.38fr) minmax(0,1fr);align-items:center;
+  column-gap:clamp(18px,1.8vw,34px);
+}
+.mh-colophon-shelf {
+  position:relative;justify-self:center;width:min(100%,160px);aspect-ratio:.85;
+}
+.mh-colophon-paper {
+  position:absolute;display:block;inset:9% 13% auto auto;width:69%;height:auto;
+  box-shadow:0 7px 15px -7px #26375975,0 0 0 1px #29365214;
+  transform-origin:49% 82%;
+  transition:transform .42s cubic-bezier(.2,.73,.15,1);
+}
+.mh-colophon-paper.paper-selection {z-index:2;transform:rotate(-9deg) translate(-5%,6%)}
+.mh-colophon-paper.paper-brochure {z-index:1;transform:rotate(10deg) translate(9%,-1%)}
+.mh-colophon-files:has([data-publication=selection]:is(:hover,:focus-visible)) .paper-selection {transform:rotate(-3deg) translate(-8%,-4%)}
+.mh-colophon-files:has([data-publication=brochure]:is(:hover,:focus-visible)) .paper-selection {transform:rotate(-16deg) translate(-12%,7%)}
+.mh-colophon-files:has([data-publication=brochure]:is(:hover,:focus-visible)) .paper-brochure {z-index:3;transform:rotate(3deg) translate(12%,-5%)}
+.mh-colophon-catalogues>strong {
+  display:block;font:600 var(--mh-type-body)/1.4 var(--mh-font-text);color:#253955;margin-bottom:11px;
+}
+.mh-colophon-catalogues a {
+  display:grid;grid-template-columns:minmax(0,1fr) auto 16px;align-items:center;gap:clamp(9px,1vw,16px);
+  min-height:47px;padding-block:8px;color:var(--directory-ink);
+  border-top:1px solid #cbd3dd;font:600 var(--mh-type-ui)/1.4 var(--mh-font-text);
+}
+.mh-colophon-catalogues a small {color:#526279;font:500 var(--mh-type-note)/1.4 var(--mh-font-text)}
+.mh-colophon-catalogues a svg {color:var(--directory-blue);transition:transform .28s}
+.mh-colophon-catalogues a:is(:hover,:focus-visible) {color:var(--directory-blue)}
+.mh-colophon-catalogues a:is(:hover,:focus-visible) svg {transform:translateY(2px)}
+.mh-colophon :is(a,button):focus-visible {outline:2px solid #234baa;outline-offset:3px}
+@media(max-width:940px) {
+  .mh-colophon-body {grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px}
+  .mh-colophon-files {grid-template-columns:minmax(72px,.29fr) minmax(0,1fr);gap:12px}
+  .mh-colophon-nav {width:80%;gap:11px}
+}
+@media(max-width:700px) {
+  .mh-colophon-menu {align-items:flex-start;gap:18px}
+  .mh-colophon-nav {width:auto;display:grid;grid-template-columns:repeat(3,auto);gap:0 15px}
+  .mh-colophon .mh-colophon-top {min-height:40px;align-self:center;gap:6px}
+  .mh-colophon-body {grid-template-columns:1fr;gap:32px}
+  .mh-colophon-files {grid-template-columns:minmax(60px,83px) minmax(0,1fr);gap:21px}
+}
+@media(max-width:420px) {
+  .mh-colophon .mh-colophon-top {flex-direction:column-reverse;gap:4px}
+  .mh-colophon-nav {grid-template-columns:repeat(2,auto);gap:0 18px}
+  .mh-colophon-files {grid-template-columns:minmax(54px,68px) minmax(0,1fr);gap:12px}
+  .mh-colophon-catalogues a {grid-template-columns:minmax(0,1fr) 16px;gap:0 8px}
+  .mh-colophon-catalogues a small {grid-column:1;grid-row:2}
+  .mh-colophon-catalogues a svg {grid-column:2;grid-row:1/3}
+}
+@media(prefers-reduced-motion:reduce) {
+  .mh-colophon *, .mh-colophon *::after {transition:none!important}
+}

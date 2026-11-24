@@ -1,0 +1,140 @@
+/* Shared reading hierarchy. The approved masthead and hero are intentionally
+   outside this scope; page and chapter titles support the content below them. */
+.site-content .route-content{
+ --reading-page:clamp(44px,4.15vw,68px);
+ --reading-section:clamp(36px,3.2vw,52px);
+ --reading-detail:clamp(26px,2.15vw,34px);
+ --reading-copy:var(--mh-type-body);
+}
+.site-content .route-content :is(.ps-heading,.co-intro,.snw-heading,.cd-heading,.ap-story-heading) h1,
+.site-content .route-content .mf-root .mf-heading{
+ font-size:var(--reading-page);font-weight:650;line-height:1.18;letter-spacing:-.035em;
+}
+.site-content .route-content :is(.hpch-heading,.hc-about-heading,.hc-strength-heading,.hce-section-heading,.hce-contact-copy,.pt-heading,.pd-range,.pd-config,.ad-context,.ad-brief-head,.cd-section-title,.bc-opening,.md-heading,.sd-section-heading,.sd-support-intro,.nd-heading,.cd-location-copy) h2,
+.site-content .route-content .spa-title,
+.site-content .route-content .precision-home .hce-partners .pt-heading h2{
+ font-size:var(--reading-section);font-weight:650;line-height:1.24;letter-spacing:-.03em;
+ font-variation-settings:'wdth' 100,'wght' 650;
+}
+.language-zh .site-content .route-content :is(h1,h2){letter-spacing:-.025em}
+.site-content .route-content :is(.ss-panel-copy,.ss-contact-note,.nw-standard-heading,.nw-editorial,.cd-current-caption) h2,
+.site-content .route-content :is(.cd-record-copy,.md-stage-copy) h3,
+.site-content .route-content .mf-root .mf-caption-title,
+.site-content .route-content .spa-description h3,
+.site-content .route-content .nd-guide-title{
+ font-size:var(--reading-detail);line-height:1.3;font-weight:600;letter-spacing:-.025em;
+}
+.site-content .route-content :is(.hce-feature-caption,.hce-news-row,.cd-work-description) h3,
+.site-content .route-content .pd-product-open h3{
+ font-size:clamp(23px,1.7vw,28px);font-weight:600;line-height:1.4;letter-spacing:-.02em;
+}
+.site-content .route-content .section-summary{
+ font-family:Manrope,'PingFang SC','Microsoft YaHei',sans-serif;
+ font-size:var(--reading-copy);font-weight:400;line-height:1.75;letter-spacing:0;
+ max-width:580px;margin:17px 0 0;color:#59677f;
+}
+.site-content .route-content :is(.snw-heading,.co-intro)>p,
+.site-content .route-content .co-intro>div>p,
+.site-content .route-content .mf-introduction>p,
+.site-content .route-content :is(.pd-range-intro,.pd-config-head,.ad-context-top,.ad-brief-head,.nd-heading,.sd-section-heading,.sd-support-intro)>p,
+.site-content .route-content .spa-description p{
+ font-size:var(--reading-copy);line-height:1.75;font-weight:400;letter-spacing:0;
+}
+.site-content .route-content .spa-intro{
+ position:absolute;z-index:3;right:4.3%;top:1px;max-width:400px;margin:0;
+ pointer-events:none;color:#596472;
+}
+.site-content .route-content .spa-description p{max-width:560px}
+.site-content .route-content .spa-tabs>button{font-size:17px;font-weight:500}
+.site-content .route-content .spa-tabs>button[aria-selected=true]{font-weight:650}
+.site-content .route-content .spa-description>a{font-size:17px}
+.site-content .route-content .hpch-heading{align-items:flex-end;gap:40px}
+.site-content .route-content .hpch-heading-copy{max-width:660px}
+.site-content .route-content .hpch-heading .section-summary{max-width:580px}
+.site-content .route-content .hpch-stage{margin-top:30px}
+.site-content .route-content .hpch-tabs button{font-size:18px}
+.site-content .route-content :is(.hpch-link,.hc-text-link,.hce-text-link){font-size:17px}
+.site-content .route-content .hpch-word{font-size:min(18vw,290px);opacity:.75}
+.site-content .route-content .hc-about-heading h2{font-size:clamp(42px,3.6vw,60px)}
+.site-content .route-content .hc-about-heading p{font-size:17px;line-height:1.7;font-weight:450;max-width:570px}
+.site-content .route-content .hc-about-heading .section-summary{color:#fff}
+.site-content .route-content .ps-heading .section-summary{max-width:360px}
+.site-content .route-content .hc-about-story{grid-template-columns:28% 72%;min-height:170px}
+.site-content .route-content .hc-about-year{font-size:clamp(72px,6.4vw,104px);font-weight:700;font-variation-settings:'wdth' 100,'wght' 700;letter-spacing:-.04em}
+.site-content .route-content .hc-about-copy p{font-size:17px;line-height:1.8}
+.site-content .route-content .hc-about-copy{padding-left:6%}
+.site-content .route-content .hc-history-tabs strong{font-size:25px}
+.site-content .route-content .hc-history-tabs span{font-size:16px}
+.site-content .route-content .hc-strength .section-summary{color:#dce4f4;max-width:650px}
+.site-content .route-content .hc-metrics{margin-top:38px}
+.site-content .route-content .hc-metric-value strong{font-size:clamp(64px,5.8vw,94px);font-weight:700;font-variation-settings:'wdth' 100,'wght' 700;letter-spacing:-.045em}
+.site-content .route-content .hc-metric-unit{font-size:18px;font-weight:500}
+.site-content .route-content .hc-metric>p{font-size:18px;font-weight:500;margin-top:12px}
+.site-content .route-content .hc-gallery-caption strong{font-size:26px;font-weight:600}
+.site-content .route-content .hc-gallery-tabs button{font-size:18px}
+.site-content .route-content .hce-section-heading{align-items:flex-end}
+.site-content .route-content .hce-contact-copy h2{max-width:700px}
+.site-content .route-content .hce-contact-copy .section-summary{max-width:540px}
+.site-content .route-content .hce-email{font-size:22px;margin-top:24px}
+.site-content .route-content .hce-inquire{font-size:19px}
+.site-content .route-content .co-metric strong{font-size:64px}
+.site-content .route-content .cd-years button{font-size:clamp(50px,5vw,76px)}
+.site-content .route-content .cd-standard-sheet strong{font-size:clamp(40px,3.6vw,54px)}
+.site-content .route-content .nw-standard-code{font-size:clamp(80px,8.2vw,132px);padding:36px 0}
+.site-content .route-content .nw-paper-type{font-size:16vw}
+.site-content .route-content .ss-ordinal{font-size:clamp(120px,13vw,210px)}
+.site-content .route-content .nd-guide-number{font-size:56px}
+.site-content .route-content .nd-detail-lead{grid-template-columns:85px 1fr}
+.site-content .route-content .nd-detail-lead p{font-size:18px;line-height:1.75}
+.site-content .route-content .nd-item h4{font-size:22px}
+.site-content .route-content .cd-form-intro h2{font-size:29px}
+.site-content .route-content .cd-intent-tabs>button{font-size:22px}
+.site-content .route-content .cd-current-caption p{font-size:17px;line-height:1.75;margin-top:18px}
+.site-content .route-content .ap-story-heading{padding:64px 4.3% 36px;display:flex;gap:8%;align-items:flex-end;justify-content:space-between}
+.site-content .route-content .ap-story-heading h1{max-width:760px}
+.site-content .route-content .ap-story-heading p{font-size:var(--reading-copy);line-height:1.75;color:#59677f;max-width:440px}
+.site-content .route-content :is(.snw-heading,.cd-heading){padding-top:60px;padding-bottom:36px;align-items:end}
+.site-content .route-content .snw-heading{padding-top:0}
+.site-content .route-content .snw-heading>p{max-width:430px;justify-self:end}
+.site-content .route-content .cd-hero-email p{font-size:16px;line-height:1.7;max-width:420px}
+.modal-backdrop .detail-copy h2,.inquiry-modal .modal>h2{font-size:clamp(32px,2.8vw,44px);line-height:1.25;letter-spacing:-.025em}
+@media(min-width:761px){
+ .site-content .route-content .precision-home{--chapter-pause:clamp(138px,12vw,200px);--exhibition-pause:clamp(156px,14vw,224px)}
+}
+@media(max-width:1100px){
+ .site-content .route-content{--reading-page:48px;--reading-section:38px;--reading-detail:29px}
+ .site-content .route-content .spa-intro{max-width:345px}
+ .site-content .route-content .hc-about-heading h2{font-size:44px}
+ .site-content .route-content .hc-metric-value{gap:14px}
+ .site-content .route-content .hc-metric-value strong{font-size:64px}
+}
+@media(max-width:760px){
+ .site-content .route-content{--reading-page:38px;--reading-section:32px;--reading-detail:26px}
+ .site-content .route-content .spa-intro{left:24px;right:24px;top:55px;max-width:340px;font-size:14px;line-height:1.65}
+ .site-content .route-content .hpch-heading,.site-content .route-content .hce-section-heading{align-items:flex-start}
+ .site-content .route-content .hc-about-story{grid-template-columns:1fr;gap:18px}
+ .site-content .route-content .hc-about-copy{padding-left:0}
+ .site-content .route-content .hc-about-heading p{font-size:16px}
+ .site-content .route-content .hc-about-year{font-size:68px}
+ .site-content .route-content .hc-metric-value strong{font-size:clamp(42px,10vw,64px)}
+ .site-content .route-content .hc-metric-unit{font-size:16px}
+ .site-content .route-content .hce-email{font-size:20px}
+ .site-content .route-content .ap-story-heading{display:block;padding:36px 20px 28px}
+ .site-content .route-content .ap-story-heading p{margin-top:18px}
+ .site-content .route-content .cd-intent-tabs>button{font-size:17px}
+ .site-content .route-content .nd-detail-lead{grid-template-columns:1fr;gap:15px}
+}
+
+/* Apply the shared type standard across independently loaded page styles.
+   Keep the banner wordmark, directory labels and year selectors in their own roles. */
+.route-content :where(h1,h2,h3,h4,h5,h6,[role=heading]):not(:where(.sh-hero *, .hce-footer *, .ridge-year *)),
+.route-content :where(.nd-guide-title,.ad-scene-heading,.sd-question h3 > button),
+.modal-backdrop :where(h1,h2,h3,h4,h5,h6,[role=heading]) {
+  font-family:var(--mh-font-display) !important;
+  font-size:var(--mh-heading-size) !important;
+  font-weight:var(--mh-weight-heading) !important;
+  font-variation-settings:normal !important;
+  line-height:var(--mh-leading-heading) !important;
+  letter-spacing:var(--mh-tracking-heading) !important;
+  overflow-wrap:break-word;
+}

@@ -1,0 +1,274 @@
+{
+  "source_type": "user-supplied company brochure artwork",
+  "source": "公司图片信息资料/公司宣传彩页画册稿/画册稿/岷河画册--22.jpg",
+  "asset": "brochure-partners-original.jpg",
+  "source_dimensions": [
+    3831,
+    2159
+  ],
+  "source_sha256": "79a6fb04e09343170cff03126124d52006c87ef975c13ba740dc8c7d26001739",
+  "processing": "Exact file copy; unchanged original artwork. Crop rectangles are display-only suggestions, excluding original surrounding card borders. No logo artwork redrawn or changed.",
+  "evidence": "Brochure spread heading: MAJOR STRATEGIC PARTNERS. Logos appear in a 4-column, 5-row grid on the right page.",
+  "logos": [
+    {
+      "id": "huaao",
+      "zh": "华奥燃气",
+      "en": "Huaao Gas",
+      "crop": {
+        "x": 2048,
+        "y": 855,
+        "width": 190,
+        "height": 118
+      },
+      "row": 1,
+      "column": 1
+    },
+    {
+      "id": "china-gas",
+      "zh": "中国燃气",
+      "en": "China Gas",
+      "crop": {
+        "x": 2279,
+        "y": 855,
+        "width": 190,
+        "height": 118
+      },
+      "row": 1,
+      "column": 2
+    },
+    {
+      "id": "mianzhou",
+      "zh": "绵洲燃气",
+      "en": "Mianzhou Gas",
+      "crop": {
+        "x": 2508,
+        "y": 855,
+        "width": 190,
+        "height": 118
+      },
+      "row": 1,
+      "column": 3
+    },
+    {
+      "id": "zhongyou-zhongtai",
+      "zh": "中油中泰",
+      "en": "Zhongyou Zhongtai",
+      "crop": {
+        "x": 2739,
+        "y": 855,
+        "width": 190,
+        "height": 118
+      },
+      "row": 1,
+      "column": 4
+    },
+    {
+      "id": "beijing-gas",
+      "zh": "北京燃气",
+      "en": "Beijing Gas",
+      "crop": {
+        "x": 2048,
+        "y": 1033,
+        "width": 190,
+        "height": 118
+      },
+      "row": 2,
+      "column": 1
+    },
+    {
+      "id": "tangshan-gas",
+      "zh": "唐山燃气",
+      "en": "Tangshan Gas",
+      "crop": {
+        "x": 2279,
+        "y": 1033,
+        "width": 190,
+        "height": 118
+      },
+      "row": 2,
+      "column": 2
+    },
+    {
+      "id": "sinopower",
+      "zh": "博能燃气",
+      "en": "Sinopower",
+      "crop": {
+        "x": 2508,
+        "y": 1033,
+        "width": 190,
+        "height": 118
+      },
+      "row": 2,
+      "column": 3
+    },
+    {
+      "id": "beijing-gas-blue-sky",
+      "zh": "北燃蓝天",
+      "en": "Beijing Gas Blue Sky",
+      "crop": {
+        "x": 2739,
+        "y": 1033,
+        "width": 190,
+        "height": 118
+      },
+      "row": 2,
+      "column": 4
+    },
+    {
+      "id": "yunnan-zhongyu",
+      "zh": "云投中裕",
+      "en": "Yunnan Investment Zhongyu",
+      "crop": {
+        "x": 2048,
+        "y": 1210,
+        "width": 190,
+        "height": 118
+      },
+      "row": 3,
+      "column": 1
+    },
+    {
+      "id": "towngas",
+      "zh": "港华燃气",
+      "en": "Towngas",
+      "crop": {
+        "x": 2279,
+        "y": 1210,
+        "width": 190,
+        "height": 118
+      },
+      "row": 3,
+      "column": 2
+    },
+    {
+      "id": "zhonghao",
+      "zh": "中浩燃气",
+      "en": "Zhonghao Gas",
+      "crop": {
+        "x": 2508,
+        "y": 1210,
+        "width": 190,
+        "height": 118
+      },
+      "row": 3,
+      "column": 3
+    },
+    {
+      "id": "yanan-gas",
+      "zh": "延安天然气",
+      "en": "Yan'an Natural Gas",
+      "crop": {
+        "x": 2739,
+        "y": 1210,
+        "width": 190,
+        "height": 118
+      },
+      "row": 3,
+      "column": 4
+    },
+    {
+      "id": "aaa-public",
+      "zh": "爱众",
+      "en": "AAA Public",
+      "crop": {
+        "x": 2048,
+        "y": 1388,
+        "width": 190,
+        "height": 118
+      },
+      "row": 4,
+      "column": 1
+    },
+    {
+      "id": "enn",
+      "zh": "新奥集团",
+      "en": "ENN Group",
+      "crop": {
+        "x": 2279,
+        "y": 1388,
+        "width": 190,
+        "height": 118
+      },
+      "row": 4,
+      "column": 2
+    },
+    {
+      "id": "shaanxi-gas",
+      "zh": "陕西燃气",
+      "en": "Shaanxi Gas",
+      "crop": {
+        "x": 2508,
+        "y": 1388,
+        "width": 190,
+        "height": 118
+      },
+      "row": 4,
+      "column": 3
+    },
+    {
+      "id": "tian-lun",
+      "zh": "天伦燃气",
+      "en": "Tian Lun Gas",
+      "crop": {
+        "x": 2739,
+        "y": 1388,
+        "width": 190,
+        "height": 118
+      },
+      "row": 4,
+      "column": 4
+    },
+    {
+      "id": "leshan-power",
+      "zh": "乐山电力",
+      "en": "Leshan Electric Power",
+      "crop": {
+        "x": 2048,
+        "y": 1565,
+        "width": 190,
+        "height": 118
+      },
+      "row": 5,
+      "column": 1
+    },
+    {
+      "id": "shenzhen-gas",
+      "zh": "深圳燃气",
+      "en": "Shenzhen Gas",
+      "crop": {
+        "x": 2279,
+        "y": 1565,
+        "width": 190,
+        "height": 118
+      },
+      "row": 5,
+      "column": 2
+    },
+    {
+      "id": "china-resources-gas",
+      "zh": "华润燃气",
+      "en": "China Resources Gas",
+      "crop": {
+        "x": 2508,
+        "y": 1565,
+        "width": 190,
+        "height": 118
+      },
+      "row": 5,
+      "column": 3
+    },
+    {
+      "id": "juneng-gas",
+      "zh": "巨能燃气",
+      "en": "Juneng Gas",
+      "crop": {
+        "x": 2739,
+        "y": 1565,
+        "width": 190,
+        "height": 118
+      },
+      "row": 5,
+      "column": 4
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+.precision-home > #applications.pa-spatial {
+  position: relative;
+  display:grid;
+  grid-template-rows:auto minmax(min-content,1fr);
+  padding:var(--home-nav-clearance,104px) 0 0;
+  min-height:var(--home-screen,100svh);
+  color: #222827;
+  background:#fff;
+}
+#applications .app-spread {
+  --scene-blue:#172d83;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height:clamp(230px,34svh,420px);
+  overflow: clip;
+  font-family: Archivo,'PingFang SC','Microsoft YaHei',sans-serif;
+  font-variation-settings: normal;
+}
+#applications :is(.app-art,.app-camera,.app-plate,.app-plate-image,.app-routes,.app-orbit-view,
+  .orbit-stage,.spa-viewport,.spa-canvas,.orbit-fallback) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+#applications .app-art { overflow: hidden; touch-action: pan-y; }
+#applications .app-camera { transition: transform .5s cubic-bezier(.2,.75,.3,1); }
+#applications .app-camera[data-dragging='true'] { transition: none; cursor: grabbing; }
+#applications .app-plate { z-index: 0; pointer-events: none; }
+#applications .app-plate[data-current='true'] {
+  z-index: 1;
+  animation: application-picture-in .54s ease-out both;
+}
+@keyframes application-picture-in { from { opacity: 0; } to { opacity: 1; } }
+#applications .app-plate-image { display: block; object-fit: cover; object-position: center top; user-select: none; }
+#applications .app-routes { overflow: visible; fill: none; }
+#applications .app-routes path { stroke-linecap: round; stroke-linejoin: round; }
+#applications .app-route-lit {
+  stroke: #ffefd1;
+  stroke-width: 2;
+  opacity: 0;
+  transition: opacity .22s ease-out;
+}
+#applications .app-route-glint {
+  stroke: #fff6e1;
+  stroke-width: 1.55;
+  opacity: .72;
+  stroke-dasharray: 2 98;
+  stroke-dashoffset: 6;
+}
+#applications .app-plate[data-current='true'] .app-route-glint {
+  animation: application-reflection 3.75s linear var(--flow-delay) infinite both;
+}
+@keyframes application-reflection {
+  0%, 12% { stroke-dashoffset: 5; opacity: 0; }
+  19% { opacity: .74; }
+  83% { opacity: .74; }
+  95%, 100% { stroke-dashoffset: -97; opacity: 0; }
+}
+#applications .app-route-hit { stroke: transparent; stroke-width: 13; pointer-events: stroke; cursor: pointer; }
+#applications .app-plate[data-current='false'] .app-route-hit { pointer-events: none; }
+#applications .app-routes g[data-emphasis='true'] .app-route-lit { opacity: .77; }
+#applications .app-routes g[data-emphasis='true'] .app-route-glint { stroke-width: 2.4; }
+#applications[data-animate='false'] .app-plate .app-route-glint { animation-play-state: paused; }
+#applications .app-caption {
+  position: absolute;
+  z-index: 9;
+  left: 5.85%;
+  top: 43%;
+  max-width: 41%;
+  opacity: var(--plate-type-opacity, 1);
+  pointer-events: none;
+}
+#applications .app-directory {
+  padding:clamp(16px,2vw,34px) 0 clamp(32px,3.4vw,64px);
+  background:#fff;
+}
+.site-content .route-content #applications .app-directory h2 {
+  margin:0 0 clamp(24px,2.65vw,48px);
+  text-align:center;
+  color:#172740;
+}
+#applications .app-heading { display: flex; align-items: baseline; gap: clamp(16px,2.6vw,50px); }
+.site-content .route-content #applications .app-heading h3 {
+  margin: 0;
+  font: 675 clamp(45px,4.86vw,88px)/1.06 Archivo,'PingFang SC','Microsoft YaHei',sans-serif;
+  font-variation-settings: normal;
+  letter-spacing: -.045em;
+  color: var(--scene-blue);
+}
+@media (prefers-reduced-motion: no-preference) {
+  #applications .app-caption[data-changing='true'] .app-typeset {
+    animation: application-caption-in 440ms cubic-bezier(.22,.75,.22,1) both;
+  }
+}
+@keyframes application-caption-in {
+  from {opacity:0;transform:translateY(5px)}
+  to {opacity:1;transform:translateY(0)}
+}
+.site-content .route-content #applications .app-heading h3[data-long='true'] {
+  font-size: clamp(39px,4.05vw,74px);
+}
+.site-content .route-content #applications .app-copy {
+  margin: .85em 0 0;
+  max-width: 27em;
+  color: #293231;
+  font: 460 clamp(16px,1.34vw,23px)/1.5 Manrope,'PingFang SC','Microsoft YaHei',sans-serif;
+  font-variation-settings: normal;
+  letter-spacing: -.012em;
+}
+#applications .app-solution {
+  display:inline-flex;
+  margin-top:clamp(13px,1.6vw,26px);
+  padding:7px 0 4px;
+  border-bottom: 1.5px solid;
+  color:var(--scene-blue);
+  pointer-events:auto;
+  font: 600 clamp(16px,1.22vw,21px)/1.25 Archivo,'PingFang SC','Microsoft YaHei',sans-serif;
+}
+#applications .app-solution:hover { color: #0c1c5d; }
+#applications :is(a,button,.spa-viewport):focus-visible { outline: 2px solid #24435b; outline-offset: 3px; }
+#applications .app-orbit-shell {
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  pointer-events: none;
+}
+#applications .app-orbit-view {
+  opacity: var(--orbit-opacity, 0);
+  background: var(--near-ground, #bcbdb9);
+}
+#applications[data-scene='home-water'] { --near-ground: #c5b8a5; }
+#applications[data-scene='gas'] { --near-ground: #cebfad; }
+#applications .app-orbit-view::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #e7e6de;
+  opacity: var(--overview-backdrop, 1);
+}
+#applications[data-view='orbit'] .app-orbit-view { pointer-events: auto; }
+#applications:is([data-view='entering'],[data-view='leaving'],[data-view='advancing']) .app-orbit-view { will-change: opacity; }
+#applications .orbit-fallback { object-fit: contain; }
+#applications .orbit-stage[data-renderer='webgl'] .orbit-fallback { visibility: hidden; }
+#applications .orbit-stage[data-renderer='fallback'] .spa-canvas { visibility: hidden; }
+#applications .spa-canvas canvas { width: 100%; height: 100%; display: block; touch-action: pan-y; }
+#applications .app-view-toggle {
+  position: absolute;
+  z-index: 10;
+  right: clamp(16px,3vw,48px);
+  bottom: clamp(16px,2.5vw,40px);
+  display: inline-flex;
+  align-items: center;
+  pointer-events:auto;
+  padding:8px 12px;
+  font:550 15px/1.2 Archivo,'PingFang SC','Microsoft YaHei',sans-serif;
+  background:#fff;color:#243438;border:1px solid #aeb9b8;border-radius:3px;
+}
+#applications .orbit-status { position: absolute; bottom: 10%; width: 100%; text-align: center; }
+@media (min-width: 851px) {
+  .precision-home > #applications.pa-spatial {
+    width:100%;
+    margin-inline:auto;
+  }
+  #applications .app-directory {
+    width:min(92%,1250px);
+    justify-self:center;
+    padding:clamp(8px,1.4svh,15px) 0 clamp(13px,2svh,22px);
+  }
+  .site-content .route-content #applications .app-directory h2 {
+    position:relative;
+    inset-block-start:-10px;
+    margin-bottom:clamp(9px,1.45svh,17px);
+  }
+  #applications .app-scene-rail {
+    width:100%;
+    --sample-size:clamp(48px,7.4svh,76px);
+    gap:clamp(4px,1vw,16px);
+  }
+  #applications .app-scene-rail button {
+    gap:3px;
+    font-size:clamp(14px,1.18vw,17px);
+  }
+  #applications .app-scene-rail-name {padding:.25em .64em .3em}
+  /* The scene fills the remaining grid row; the photo and pipe overlay
+     share the same top-centred crop at any viewport ratio. */
+  #applications .app-spread {
+    container-type:inline-size;
+  }
+  #applications .app-caption {top:39%}
+  .site-content .route-content #applications .app-heading h3 {
+    font-size:clamp(32px,4.65cqi,68px);
+  }
+  .site-content .route-content #applications .app-heading h3[data-long='true'] {
+    font-size:clamp(29px,3.95cqi,56px);
+  }
+  .site-content .route-content #applications .app-copy {
+    font-size:clamp(15px,1.48cqi,20px);
+    margin-top:.6em;
+  }
+  #applications .app-solution {font-size:clamp(15px,1.4cqi,19px);margin-top:.65em}
+}
+@media (max-width: 850px) {
+  #applications .app-directory {padding-block:8px 18px}
+  .site-content .route-content #applications .app-directory h2 {margin-bottom:12px}
+  #applications .app-caption { left: 4%;max-width: 46%; }
+  #applications .app-heading { flex-wrap: wrap; gap: 4px 14px; }
+}
+@media (max-width: 600px) {
+  #applications .app-directory {padding-block:4px 14px}
+  #applications .app-scene-rail {--sample-size:clamp(32px,6.2svh,56px);row-gap:3px}
+  #applications .app-scene-rail button {font-size:13px;gap:1px}
+  #applications .app-scene-rail-name {white-space:normal}
+  #applications .app-spread {display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(126px,1fr) auto auto;min-height:0;padding-bottom:16px;background:#e3e4df}
+  #applications .app-art {position:relative;height:auto;grid-area:1/1}
+  #applications .app-caption {position:relative;inset:auto;width:auto;max-width:none;grid-row:2;margin:14px 5% 5px}
+  #applications .app-view-toggle {position:relative;right:auto;bottom:auto;grid-row:3;justify-self:start;margin:0 5%}
+  #applications .app-orbit-shell {grid-area:1/1/2/2;inset:0}
+  .site-content .route-content #applications .app-heading h3 { font-size: 38px; }
+  #applications .app-solution {margin:6px 0 0}
+}
+@media(max-width:600px) and (max-height:700px) {
+  #applications .app-scene-rail {width:96%;--sample-size:29px;gap:2px}
+  #applications .app-scene-rail button {flex-direction:row;align-items:center;justify-content:center;min-height:42px}
+  #applications .app-scene-sample {flex:none}
+  #applications .app-scene-rail-name {min-width:0;padding:.25em .3em;font-size:12px}
+  #applications .app-directory {padding-block:2px 8px}
+  .site-content .route-content #applications .app-directory h2 {margin-bottom:6px}
+  #applications .app-spread {padding-bottom:7px}
+  #applications .app-caption {margin-top:9px}
+}
+@media(min-width:601px) and (max-height:550px) {
+  #applications .app-directory {padding:0 0 8px}
+  .site-content .route-content #applications .app-directory h2 {inset:auto;margin-bottom:4px}
+  #applications .app-scene-rail {--sample-size:32px}
+  #applications .app-scene-rail button {gap:0;padding-block:0}
+  #applications .app-spread {min-height:156px}
+  #applications .app-caption {top:7%}
+}
+@media (prefers-reduced-motion: reduce) {
+  #applications .app-plate[data-current='true'],#applications .app-plate[data-current='true'] .app-route-glint { animation: none; }
+  #applications .app-route-glint { opacity: 0; }
+  #applications .app-camera,#applications .app-route-lit,#applications .app-caption,
+  .site-content .route-content #applications .app-heading h3 { transition: none; }
+}
+
+#applications .app-plate[data-current='true']:only-child { animation: none; }

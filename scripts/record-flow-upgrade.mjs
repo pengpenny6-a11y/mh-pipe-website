@@ -1,0 +1,53 @@
+import {chromium} from '/Users/penny/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {execFile} from 'node:child_process';
+import {promisify} from 'node:util';
+import {scenes} from '../src/content.js';
+const run=promisify(execFile),out=path.resolve('outputs/flow-upgrade/recording');
+await fs.mkdir(out,{recursive:true});
+const ffmpeg='/Users/penny/Documents/Codex/2026-10-14/ji/work/video-tools/imageio_ffmpeg/binaries/ffmpeg-macos-aarch64-v7.1';
+const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
+const context=await browser.newContext({viewport:{width:1440,height:900},deviceScaleFactor:1});
+const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+const wait=ms=>page.waitForTimeout(ms);
+await page.goto('http://127.0.0.1:4193/?lang=zh',{waitUntil:'networkidle'});
+await page.evaluate(()=>document.fonts.ready);
+await page.evaluate(async more=>{await Promise.all([...document.querySelectorAll('main img')].map(el=>el.src).concat(more).map(src=>{const img=new Image();img.src=src;return img.decode().catch(()=>{})}))},scenes.map(s=>s.image));
+const client=await context.newCDPSession(page),frames=[],pending=[];
+client.on('Page.screencastFrame',e=>{const file='frame-'+String(frames.length).padStart(5,'0')+'.jpg';frames.push({file,time:e.metadata.timestamp});pending.push(fs.writeFile(path.join(out,file),Buffer.from(e.data,'base64')));client.send('Page.screencastFrameAck',{sessionId:e.sessionId}).catch(()=>{});});
+await page.reload({waitUntil:'domcontentloaded'});
+await client.send('Page.startScreencast',{format:'jpeg',quality:85,maxWidth:1440,maxHeight:900,everyNthFrame:2});
+async function to(selector,offset=-45,duration=1200){
+ await page.evaluate(({selector,offset,duration})=>new Promise(resolve=>{
+  const target=document.querySelector(selector).getBoundingClientRect().top+scrollY+offset;
+  window.mhScroll.scrollTo(target,{duration:duration/1000,lerp:0,easing:t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,onComplete:resolve});
+  setTimeout(resolve,duration+600);
+ }),{selector,offset,duration});await wait(220);
+}
+await wait(1750);await page.mouse.move(1070,560,{steps:22});await wait(400);await page.mouse.move(650,470,{steps:20});await wait(450);
+console.log('hero');
+await page.locator('.fx-explore').click();await wait(1650);await to('.ap-stage',-65,850);
+console.log('application controls',await page.locator('.ap-tabs button').allTextContents());
+await page.locator('.ap-tabs button').nth(0).click();await wait(1200);
+await page.locator('.ap-tabs button').nth(4).click();await wait(1250);
+await page.locator('.ap-hotspot').first().click();await wait(1550);
+await page.locator('.ap-close').click();await wait(1250);
+await to('.ms-header',-25,1350);await wait(650);await to('.ms-process',-38,900);
+console.log('manufacturing controls',await page.locator('.ms-chapter').allTextContents());
+await page.locator('.ms-chapter').nth(1).click();await wait(1450);
+await page.locator('.ms-chapter').nth(2).click();await wait(1450);
+await page.locator('.ms-chapter').nth(0).click();await wait(1650);
+await to('.ms-facility',-260,1150);await wait(400);await to('.ms-facility-frame',-60,1550);await wait(1250);
+await to('.standard-evidence',-50,1300);await wait(1500);
+await to('.ps-root',-32,1200);await wait(1400);
+await to('.co-campus',-75,1200);await wait(2450);
+await client.send('Page.stopScreencast');await Promise.all(pending);await browser.close();
+const lines=['ffconcat version 1.0'];let duration=0;
+for(let i=0;i<frames.length;i++){lines.push("file '"+frames[i].file+"'");const dt=i+1<frames.length?Math.max(.016,Math.min(3,frames[i+1].time-frames[i].time)):1;duration+=dt;lines.push('duration '+dt.toFixed(5));}
+lines.push("file '"+frames.at(-1).file+"'");await fs.writeFile(path.join(out,'frames.ffconcat'),lines.join('\n'));
+const video=path.join(out,'MH-PIPE-flow-upgrade.mp4');
+await run(ffmpeg,['-y','-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',path.join(out,'frames.ffconcat'),'-vf','scale=1440:-2','-fps_mode','vfr','-c:v','libx264','-crf','22','-pix_fmt','yuv420p','-movflags','+faststart',video]);
+await run(ffmpeg,['-y','-hide_banner','-loglevel','error','-i',video,'-vf','fps=1/2.4,scale=360:-1,tile=4x4','-frames:v','1',path.join(out,'contact-sheet.jpg')]);
+const metadata={video,durationSeconds:duration,bytes:(await fs.stat(video)).size,frames:frames.length,errors,lastFrame:frames.at(-1).file};
+await fs.writeFile(path.join(out,'recording.json'),JSON.stringify(metadata,null,2));console.log(JSON.stringify(metadata));

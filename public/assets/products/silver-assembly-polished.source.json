@@ -1,0 +1,8 @@
+{
+  "asset": "silver-assembly-polished.webp",
+  "type": "Static fallback captured from the live MH PIPE WebGL product viewer",
+  "source": "src/PrecisionProduct.jsx",
+  "capture": "outputs/metal-refinement/check.mjs",
+  "environment": "../environments/SOURCE.json",
+  "notes": "Transparent real renderer capture; only WebP format conversion. Used when WebGL is unavailable. The normal presentation remains live interactive 3D. Illustrative assembly, not an installation or pressing simulation."
+}

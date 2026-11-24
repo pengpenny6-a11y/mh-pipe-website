@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="data:,">
+    <title>官网字体规范 · MH PIPE 四川岷河</title>
+    <link rel="stylesheet" href="/src/typography.css">
+    <link rel="stylesheet" href="/src/type-specimen.css">
+  </head>
+  <body>
+    <main>
+      <header class="specimen-head">
+        <div class="brand-row"><a href="/?lang=zh" aria-label="返回岷河官网首页" lang="en">MH PIPE</a><div class="specimen-actions"><a href="/downloads/mh-pipe-fonts.zip" download>下载字体包</a><button type="button" id="print-sheet">打印样张</button></div></div>
+        <h1>官网字体规范<small class="mh-heading-english" lang="en" aria-hidden="true">Typography guidelines</small></h1>
+        <p>中文优先使用苹方或微软雅黑。西文标题与数字使用 Archivo，正文使用 Manrope。</p>
+      </header>
+      <table>
+        <caption>同一内容角色的双语对照。样张下方依次为实际字号、字重和行高。首页 Banner 使用独立比例。</caption>
+        <colgroup><col class="role-col"><col><col></colgroup>
+        <thead><tr><th scope="col">文字用途</th><th scope="col">简体中文</th><th scope="col" lang="en">English</th></tr></thead>
+        <tbody id="specimen-rows"></tbody>
+      </table>
+    </main>
+    <script type="module" src="/src/type-specimen.js"></script>
+  </body>
+</html>

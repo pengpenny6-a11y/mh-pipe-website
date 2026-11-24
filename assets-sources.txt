@@ -1,0 +1,115 @@
+MH PIPE material studio — Asset provenance
+Prepared: 2026-11-06
+
+1. Company photographs
+Source manifest: work/minhe-site/dist/assets/company/ASSET-SOURCES.json
+Origin: Company materials supplied by the user.
+The four copied WebP files below were checked byte-for-byte against the output SHA-256 hashes recorded in the existing source manifest.
+Provenance is recorded for these images; no certification, capacity, test result, or commercial promise is inferred from them.
+
+Asset: /assets/company/factory.webp
+Label: Factory exterior
+Original supplied source: 公司图片信息资料/公司无人机拍摄图片/微信图片_20260130111249_2555_347.jpg
+Original source SHA-256 (from manifest): fb1c3e9afb8ee3bcd94e07330247a1f42ecbe3c6e38857032d87d341b3f613fb
+Copied asset SHA-256 (verified): a07e8504658936215d8a9881bf6f0a9d2b43156e458aa6162e42057a8896d984
+Processing recorded in source manifest: EXIF orientation normalized; converted to RGB; proportional downscale only; WebP quality 88; metadata omitted; no cropping, retouching or generation
+
+Asset: /assets/company/laboratory.webp
+Label: Type testing laboratory
+Original supplied source: 公司图片信息资料/公司现场关键过程照片（精修）/一类—型式试验.jpg
+Original source SHA-256 (from manifest): 5e90366442dbb319028104f3a30b1b7dce5e1bd23a94bf05bb6766adb01fba53
+Copied asset SHA-256 (verified): 2d8d63e3c4c139b49c91ec7fdd05029c08c94604199ec7b1df52b5646acb3d5c
+Processing recorded in source manifest: EXIF orientation normalized; converted to RGB; proportional downscale only; WebP quality 88; metadata omitted; no cropping, retouching or generation
+
+Asset: /assets/company/tube-making.webp
+Label: Tube production
+Original supplied source: 公司图片信息资料/公司现场关键过程照片（精修）/制管.jpg
+Original source SHA-256 (from manifest): e0037302b9ae1b443a7e7abc7465d25fffeb0a416b547c9394646e17ac723975
+Copied asset SHA-256 (verified): c0c60de715d0011f186335627a5be83f629f6f5958602b550a187bee00a6a05a
+Processing recorded in source manifest: EXIF orientation normalized; converted to RGB; proportional downscale only; WebP quality 88; metadata omitted; no cropping, retouching or generation
+
+Asset: /assets/company/laser-marking.webp
+Label: Laser marking
+Original supplied source: 公司图片信息资料/公司现场关键过程照片（精修）/激光打标（大）.jpg
+Original source SHA-256 (from manifest): ae13662a34c05468cd3f64ca6566f3dcd05dbb8c4e8a610618db0c594d3e8a3b
+Copied asset SHA-256 (verified): 1ae4993391f195fe29dbca6b17f6267613e01017e944f93c32aa2213968e57a6
+Processing recorded in source manifest: EXIF orientation normalized; converted to RGB; proportional downscale only; WebP quality 88; metadata omitted; no cropping, retouching or generation
+
+2. Generated product and application assets
+Product assets: /assets/products/tee.png, coupling.png, elbow.png, pipe.png.
+Scene assets: /assets/scenes/home.png, gas.png, cooling.png, industry.png, fire.png.
+These are newly generated concept visuals matching the selected design direction, not photographs of verified SKUs, installations or MH PIPE facilities.
+Each application now uses its own generated spatial illustration. home.png represents building-water context; gas.png represents building-gas context; fire.png represents fire-protection context. None is an installation drawing or an engineering system design.
+Final geometry, socket profiles, matching dimensions, materials and application suitability require verified product data. No pressing deformation, tool compatibility, system performance or engineering validation is claimed.
+The scene assets are 1536 × 1024. Hotspot coordinates in src/content.js were visually aligned to these final images on 2026-11-06, using percentages of the complete image. They identify visible generic component forms, not verified product compatibility or installation compliance.
+Gas and fire copy explicitly describes a spatial concept. These are application-selection illustrations only; none may be described as a verified gas, plumbing or fire-protection installation.
+No home.png hotspot is assigned to an elbow: there is no clear elbow fitting in that image. Wall clamps and pipe supports are not treated as saleable coupling fittings.
+gas.png was generated as an original 1536 × 1024 RGB image on 2026-11-06 and used without image editing. Its two selected hotspots are the upper branch tee (66.1%, 44.3%) and the kitchen branch elbow (46.5%, 73.0%). No gas-image valve or wall clamp is labelled as a coupling.
+fire.png was generated as an original 1536 × 1024 image on 2026-11-06. Its two selected hotspots are the branch tee (68.1%, 35.1%) and the right-hand elbow (86.6%, 34.4%).
+
+3. Reuse limits
+Manufacturing photographs remain user-supplied company material; do not replace them with generated imagery while presenting the result as company evidence.
+Product copy describes generic component form only; no unverified sizes, grades, standards, pressures, temperatures or certifications were added.
+Generated design assets may be used for the prototype; production use should be reviewed alongside the final company/product information.
+
+Technology-direction update, 2026-11-06
+- Archivo variable font was replaced with a verified complete 658596-byte file from the official Google Fonts repository: https://github.com/google/fonts/tree/main/ofl/archivo . License: public/assets/fonts/Archivo-OFL.txt . Manrope license is retained in public/assets/fonts/Manrope-OFL.txt.
+- ManufacturingTech uses the same four verified company photographs described above; no generated plant imagery is used as manufacturing evidence.
+- The technology-study image is a design exploration only and is not shipped as the website UI.
+- Motion preview is a recording of the running local website, not an engineering process demonstration.
+
+2026-11-06 company upgrade:
+Partner logo artwork: unchanged user brochure spread 岷河画册--22.jpg, with display-only crops in public/assets/partners/SOURCES.json.
+Additional actual company photos and original brochure copied from the verified prior project assets; source mapping retained in work/minhe-site/dist/assets/company/ASSET-SOURCES.json.
+Founding date, address, email and 2024 annual-production statements verified against original brochure artwork; full table outputs/company-upgrade-20261106/evidence.md.
+No new current certification, staff-count, factory-area or export-market claims.
+
+2026-11-06 motion experience v3:
+- Pale PIPE / CONNECT lettering is native HTML/CSS typography, not a third-party image asset.
+- Product carousel gestures, shared-image detail transitions, application zoom/pan and product-card reveals animate the existing 2D raster assets. They do not introduce real-time 3D geometry, engineering simulation or verified pressing-process footage.
+- Manufacturing playback reuses the verified photographs above. A 6.2-second playback cycle, progress indicator, pause logic and image transitions do not alter the provenance or turn these stills into factory video footage.
+- Company counters animate the existing source-qualified 2024 brochure values once, from 1 to the target over 2.25 seconds. Animation is not evidence of live production measurement or a change to the underlying figures.
+- Partner expansion animates the display container only; the original logo artwork and the existing source mapping remain unchanged.
+- outputs/motion-experience-v3/recording/MH-PIPE-motion-v3.mp4 is a recording of the running local website. It is not a product test, manufacturing-process video or 3D simulation. The recording contact sheet was inspected during this revision.
+
+Locally hosted software dependency: Lenis 1.3.27
+Official project: https://github.com/darkroomengineering/lenis
+Upstream documentation: https://raw.githubusercontent.com/darkroomengineering/lenis/main/README.md
+License: MIT; Copyright (c) 2024 darkroom.engineering.
+License notice retained at public/assets/vendor/LENIS-LICENSE.txt. Preserve this notice with redistributed copies.
+The local JavaScript file declares version 1.3.27; filenames, byte sizes and hashes below were checked locally on 2026-11-06. The upstream main-branch README is documentation, not a version-pinned copy of the shipped runtime.
+- public/assets/vendor/lenis-1.3.27.min.js — 18815 bytes; SHA-256 80f53e77f1c13e379fc246d2b5e299188e20bcb2b2fe7ebb13e8e8c7563a6da7
+- public/assets/vendor/lenis-1.3.27.css — 513 bytes; SHA-256 2f668ae84a668327f246faf8a770383a2bf69196d214290fbc4d5548910606c5
+- public/assets/vendor/LENIS-LICENSE.txt — 1088 bytes; SHA-256 7d1896b31f2eed9f286b05faca067c4e35b2f109ae7c4ed5105220e2d2820228
+Integration uses native vertical document scrolling with smooth mouse-wheel progression, no pinned sections, and reduced-motion handling. View Transition is a browser API rather than an additional downloaded visual asset.
+Status: local preview and production build only; no deployment was performed for this revision.
+
+
+2026-11-06 continuous opening upgrade:
+- public/assets/flow/connection-system-polished.png is the selected transparent concept illustration generated and materially refined with built-in ImageGen. 2172 x 724; prompt and provenance: outputs/flow-upgrade/asset-note.txt and asset-polished-note.txt. The previous sibling is retained. Same-axis equal-length tubes and a central coupling are shown conceptually; no verified product dimensions or deformation simulation is claimed.
+- public/assets/company/facility-rendering-original.png preserves the user attachment /Users/penny/Desktop/fdf6fbfdf1b31465e8e9e873cbd9af5b.png. The user expressly permits appropriate visual optimization.
+- public/assets/company/facility-rendering-refined.png is the selected ImageGen-retouched architectural rendering, not a photograph or exact plan. Overall layout and planning intent remain; small details were regenerated. UI/lightbox labels identify the rendering. Complete prompt/review: outputs/flow-upgrade/facility-image-note.txt.
+- Five bilingual application descriptions and selection prompts: src/solution-content.js. They invite checking media, conditions and interfaces, without asserting blanket product suitability.
+- Independently verified public fact: Sichuan Minhe Pipeline Construction Engineering Co., Ltd. is listed among the main drafting organizations for GB/T 33926-2017, Stainless steel pipe fitting of ring compression. Primary source accessed 2026-11-06: https://std.samr.gov.cn/gb/search/gbDetailedCNF?id=71F772D81B07D3A7E05397BE0A0AB82A . This does not establish certification of all company products, overseas approvals or specific application suitability.
+- Real manufacturing photos remain unchanged. ManufacturingStory sequences observations of coils, forming equipment, laboratory work and product marking. Photo source mapping remains in the prior company material.
+
+
+2026-11-06 Precision homepage revision
+- outputs/precision-home/homepage-mock.png: built-in ImageGen full-page visual target, displayed before building. Prompt outputs/precision-home/design-prompt.txt. Generated mock contains illustrative imagery; production uses verified partner marks and company photographs.
+- public/assets/scenes/water-building.png: built-in ImageGen conceptual architecture, 1774x887, no engineering/installed-project claim. Prompt outputs/precision-home/scene-prompt.txt. Used only by new homepage water scene, with recalibrated hotspots.
+- src/PrecisionProduct.jsx: original code-native actual interactive Three.js geometry, studio PMREM reflections. Not a generated photograph, not CAD or pressing validation. Pipe radius fits the socket bore, two straight segments equal in radius/length. Explicit assembly-view qualification.
+- public/assets/vendor/three.module.js: existing workspace Three.js vendor copy; MIT license preserved in THREE-LICENSE.txt.
+- Facility rendering and actual company photographs retain prior provenance and labels. Partner display uses all20 supplied brochure logos, now in a single moving homepage lane.
+
+Homepage product series (2026-11-20)
+- public/assets/product-series/{press,ring}-{coupling,tee,elbow}.webp: original company product photographs extracted with transparent backgrounds from the respective press-fit / ring-press columns of 四川岷河宣传手册, 2024, equal coupling / equal 90° elbow / equal tee (PDF spreads 9, 10 and 11).
+- public/assets/product-series/run-{coupling,tee,elbow,pipe}.webp and thick-wall-section.webp: captures of the illustrative ProductRun WebGL scene. The wall section represents the series concept. Neither render supplies model dimensions or a product rating.
+- public/assets/product-series/ring-studio-{coupling,elbow,tee}.webp: transparent silhouette masks from the original MH PIPE studio group photograph 公司图片信息资料/产品拍摄图/2-.jpg (5436 × 4080). The earlier MH PIPE company asset manifest identifies this photograph as the ring-press range. Forms correspond to the ring-press equal coupling, 90° elbow and equal tee in the 2024 catalogue. Photographic detail and reflections are original.
+- public/assets/product-series/ring-finish-{coupling,elbow,tee}.webp: ImageGen finish visualisations guided by those three company photograph cutouts. The homepage labels the finish study and provides a same-angle original photograph comparison. These images do not establish actual polish, dimensional specifications or manufacturing tolerances.
+- public/assets/product-series/thick-wall-{side,end}.webp and thick-wall-{to-end,to-side}.mp4: rendered side/end poses and camera turns of an illustrative hollow tube. The dimension callouts identify the outside diameter and wall thickness without giving a SKU or nominal values.
+
+- Homepage factory gallery (2026-11-22). tube-making.webp, forming.webp and heat-treatment.webp are MH PIPE workshop photographs of the tube mill, hydroforming press and heat-treatment line.
+- Homepage laboratory gallery. Files in public/assets/company/ are resized company photographs from 公司现场关键过程照片（精修）. lab-metallography.webp comes from 一类—金相组织分析.jpg, lab-pullout.webp from 一类—拉拔试验（大）.jpg, and lab-thermal-cycling.webp from 一类—冷热水循环试验.jpg.
+- Homepage project gallery. longli-waterfront.webp and wyndham-chengdu.webp are cropped from the labelled engineering case page 岷河画册--23.jpg. mh-engineering-cases.webp is the full source page. water-renewal.webp and gas-renewal.webp come from the company's 安装实例精修图片(1)/供水旧改.jpg and 燃气旧改1.jpg.
+- Homepage contact. office-facade.webp is the company's photograph 公司无人机拍摄图片/微信图片_20260130111249_2557_347.jpg.
+- The ISO 9001, ISO 14001 and ISO 45001 certificate images in public/assets/company/standard-*.webp are cropped from page 4 of the supplied 四川岷河宣传手册.pdf. The GB/T 27922 after-sales service certificate is cropped from the lower right of 岷河画册--05.jpg in the supplied brochure artwork.

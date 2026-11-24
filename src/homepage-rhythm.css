@@ -1,0 +1,28 @@
+.precision-home {
+ --home-screen:100svh;
+ --home-nav-clearance:clamp(106px,13svh,148px);
+}
+.precision-home > section {margin-block:0}
+.precision-home > section:not(.sh-hero),
+.precision-home > #home-strength > .hmf-workshop,
+.precision-home #home-laboratory {min-block-size:var(--home-screen)}
+.precision-home [data-scroll-align=start] {scroll-margin-top:calc(0px - var(--site-scroll-padding,0px))}
+@media(max-width:850px) {
+ .precision-home {--home-nav-clearance:96px}
+}
+
+.app-joint-glint {
+ position:absolute;left:0;top:0;z-index:9;width:28px;height:28px;border-radius:50%;
+ transform:translate(-50%,-50%);border:1px solid #926c3b;
+ background:radial-gradient(circle,#fff9e9 0 2px,#d9a360 2.5px 4px,transparent 5px);
+ box-shadow:0 0 0 1px #ffffffe6,inset 0 0 0 1px #ffffffc9;
+ opacity:0;pointer-events:none;
+}
+.home-series[data-series=press]:not([data-form]) .series-render :is(canvas,.series-render-still,.run-pins) {
+ translate:var(--entry-pan,0px) 0;
+}
+@media (prefers-reduced-motion:no-preference) {
+ .home-series[data-series=press][data-form] .series-render :is(canvas,.series-render-still,.run-pins) {
+  translate:0 0;transition:translate .24s ease-out,opacity .25s;
+ }
+}

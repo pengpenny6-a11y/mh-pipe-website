@@ -1,0 +1,23 @@
+import {chromium} from '/Users/penny/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import fs from 'node:fs/promises';import path from 'node:path';import {execFile} from 'node:child_process';import {promisify} from 'node:util';
+const run=promisify(execFile),out=path.resolve('outputs/motion-experience-v3/recording');await fs.mkdir(out,{recursive:true});
+const ffmpeg='/Users/penny/Documents/Codex/2026-10-14/ji/work/video-tools/imageio_ffmpeg/binaries/ffmpeg-macos-aarch64-v7.1';
+const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
+const context=await browser.newContext({viewport:{width:1440,height:900},deviceScaleFactor:1});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+const wait=ms=>page.waitForTimeout(ms);
+await page.goto('http://127.0.0.1:4193/?lang=zh');await page.evaluate(()=>document.fonts.ready);await page.evaluate(async()=>{await Promise.all([...document.querySelectorAll('main img')].map(el=>{const img=new Image();img.src=el.src;return img.decode().catch(()=>{})}))});await wait(1400);
+const client=await context.newCDPSession(page),frames=[],pending=[];
+client.on('Page.screencastFrame',e=>{const file='frame-'+String(frames.length).padStart(5,'0')+'.jpg';frames.push({file,time:e.metadata.timestamp});pending.push(fs.writeFile(path.join(out,file),Buffer.from(e.data,'base64')));client.send('Page.screencastFrameAck',{sessionId:e.sessionId}).catch(()=>{});});
+await client.send('Page.startScreencast',{format:'jpeg',quality:83,maxWidth:1440,maxHeight:900,everyNthFrame:2});
+async function to(selector,offset=-30,duration=1100){await page.evaluate(({selector,offset,duration})=>new Promise(resolve=>{const target=document.querySelector(selector).getBoundingClientRect().top+scrollY+offset;window.mhScroll.scrollTo(target,{duration:duration/1000,lerp:0,easing:t=>1-Math.pow(1-t,3),onComplete:resolve});setTimeout(resolve,duration+700)}),{selector,offset,duration});await wait(250)}
+async function drag(selector,from,to){const b=await page.locator(selector).boundingBox();await page.mouse.move(b.x+b.width*from[0],b.y+b.height*from[1]);await page.mouse.down();await page.mouse.move(b.x+b.width*to[0],b.y+b.height*to[1],{steps:18});await page.mouse.up();}
+await page.mouse.move(1100,330,{steps:25});await wait(600);await page.mouse.move(650,560,{steps:30});await wait(700);
+await to('.ap-root');await page.locator('.ap-hotspot').first().click();await wait(1450);await drag('.ap-viewport',[.39,.62],[.55,.46]);await wait(500);await page.locator('.ap-close').click();await wait(1250);
+await to('.ps-root');await drag('.ps-gesture',[.68,.45],[.36,.45]);await wait(1050);await page.locator('.ps-details').click();await wait(850);await page.keyboard.press('Escape');await page.locator('.product-modal').waitFor({state:'hidden'});await wait(150);
+await to('.mf-frame',-70);await page.mouse.move(8,8,{steps:12});await page.waitForFunction(()=>document.querySelectorAll('.mf-selector')[1]?.getAttribute('aria-pressed')==='true',null,{timeout:9000});await wait(1250);
+await to('.co-root',-15,1200);await page.mouse.move(8,8);await wait(2450);
+await to('.pt-root');await page.mouse.move(8,8);await wait(1200);await page.locator('.pt-actions [aria-expanded]').click();await wait(1200);await page.locator('.pt-actions [aria-expanded]').click();await wait(900);
+await to('.bc-root',-25,1000);await wait(1100);
+await client.send('Page.stopScreencast');await Promise.all(pending);await browser.close();
+const lines=['ffconcat version 1.0'];let duration=0;for(let i=0;i<frames.length;i++){lines.push("file '"+frames[i].file+"'");const dt=i+1<frames.length?Math.max(.016,Math.min(3,frames[i+1].time-frames[i].time)):1;duration+=dt;lines.push('duration '+dt.toFixed(5));}lines.push("file '"+frames.at(-1).file+"'");await fs.writeFile(path.join(out,'frames.ffconcat'),lines.join('\n'));
+const video=path.join(out,'MH-PIPE-motion-v3.mp4');await run(ffmpeg,['-y','-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',path.join(out,'frames.ffconcat'),'-vf','scale=1440:-2','-fps_mode','vfr','-c:v','libx264','-crf','22','-pix_fmt','yuv420p','-movflags','+faststart',video]);await run(ffmpeg,['-y','-hide_banner','-loglevel','error','-i',video,'-vf','fps=1/2,scale=320:-1,tile=4x5','-frames:v','1',path.join(out,'contact-sheet.jpg')]);const metadata={video,durationSeconds:duration,bytes:(await fs.stat(video)).size,frames:frames.length,errors,lastFrame:frames.at(-1).file};await fs.writeFile(path.join(out,'recording.json'),JSON.stringify(metadata,null,2));console.log(JSON.stringify(metadata));

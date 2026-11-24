@@ -1,0 +1,28 @@
+.series-render[data-product-family=press] .run-pin-dot {
+  width:13px;height:13px;border:2px solid #fff;
+  background:#375a72;
+  box-shadow:0 0 0 1px #375a7299,0 1px 5px #1a344544;
+}
+.series-studio[data-overview=true] .series-render .run-pin[data-cue=false]:not(:hover,:focus-visible) .run-pin-dot {
+  opacity:.95;transform:scale(.82);
+}
+.series-render .run-pin[data-cue=true]::before {
+  border:1px solid #59798e;box-shadow:none;
+  animation:product-pin-breathe 2.7s ease-out infinite;
+}
+.series-render .run-pin[data-cue=true]::after {display:none}
+.series-render[data-product-family=press] .run-pin[data-marked=true] .run-pin-dot {
+  width:10px;height:10px;background:#365d78;border:2px solid #fff;
+}
+.series-render .run-selection-name {--leader:#52748d}
+.series-render[data-motion-state=moving] .run-selection-name {
+  opacity:0;visibility:hidden;transition:none;
+}
+.series-render .run-pin:focus-visible {outline:2px solid #426c86;outline-offset:1px}
+@keyframes product-pin-breathe {
+  0%,12% {transform:scale(.65);opacity:.7}
+  72%,100% {transform:scale(1.45);opacity:0}
+}
+@media (prefers-reduced-motion:reduce) {
+  .series-render .run-pin[data-cue=true]::before {animation:none;transform:scale(1);opacity:.5}
+}
