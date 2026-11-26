@@ -1,0 +1,19 @@
+{
+  "created": "2026-11-06",
+  "tool": "Built-in image_gen",
+  "purpose": "Illustrative service scenarios; not actual MH PIPE staff, offices, customers or project sites.",
+  "assets": [
+    {
+      "file": "project-consultation",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium MH PIPE manufacturer website SERVICES page editorial image. Create natural documentary-style business photography, landscape 16:10, restrained cool neutral palette, white and navy clothing, realistic skin, precise hands, beautiful soft natural daylight, sophisticated large engineering group. This is an illustrative service scenario, no logos, no brand or company signs, no text, no watermarks. Composition visually calm, polished but credible, avoid generic exaggerated stock smiles and CGI skin, no stainless steel product closeups. Subject: two professional business partners, an East Asian export sales director and a visiting international procurement manager, meeting at a modern white glass office table. Calm handshake across table naturally proportioned hands, waist-up and hands focal. A third colleague reviews a large drawing in soft background. Actual rolled building plans and a closed navy document folder on the table. Architectural office windows with subtle city background. Candid respectful collaboration, soft late morning light, not posed toward camera."
+    },
+    {
+      "file": "technical-review",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium MH PIPE manufacturer website SERVICES page editorial image. Create natural documentary-style business photography, landscape 16:10, restrained cool neutral palette, white and navy clothing, realistic skin, precise hands, beautiful soft natural daylight, sophisticated large engineering group. This is an illustrative service scenario, no logos, no brand or company signs, no text, no watermarks. Composition visually calm, polished but credible, avoid generic exaggerated stock smiles and CGI skin, no stainless steel product closeups. Subject: three engineering project team members reviewing a large architectural drawing at a clean white conference table in a bright modern engineering office. An East Asian female engineer and male engineer and international project client, tasteful navy and white workwear. One person points to the unlettered drawing, others listen, side-on slightly elevated composition focused on collaborative review, no one looking at camera. Carefully proportioned fingers, natural restrained gestures, clean glass office background, true photographic skin and paper texture."
+    },
+    {
+      "file": "site-coordination",
+      "prompt": "Use case: photorealistic-natural. Asset type: premium MH PIPE manufacturer website SERVICES page editorial image. Create natural documentary-style business photography, landscape 16:10, restrained cool neutral palette, white and navy clothing, realistic skin, precise hands, beautiful soft natural daylight, sophisticated large engineering group. This is an illustrative service scenario, no logos, no brand or company signs, no text, no watermarks. Composition visually calm, polished but credible, avoid generic exaggerated stock smiles and CGI skin, no stainless steel product closeups. Subject: two engineering site coordinators in clean white safety helmets, navy work jackets and subtle safety vests reviewing a construction plan outside a large modern glass and steel building. One holds a rolled plan while the other gestures towards the building, believable anatomically correct hands. Mid-distance three-quarter view showing people and architectural scale. Site orderly and under fit-out construction, neutral pale blue sky, diffuse daylight, natural documentary image, no sparks, no pipes, no flags, no brand marks."
+    }
+  ]
+}

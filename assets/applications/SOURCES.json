@@ -1,0 +1,19 @@
+{
+  "created": "2026-11-19",
+  "source": "Original realtime Three.js scene renders",
+  "purpose": "Fallback images when WebGL is unavailable",
+  "technicalNote": "Illustrative application routes with double-press connection shapes; not installation drawings or verified engineering specifications.",
+  "plates": {
+    "created": "2026-11-20",
+    "source": "Original AI-generated architectural application illustrations for MH PIPE. The fire view derives from the approved concept.",
+    "files": [
+      "plates/water.webp",
+      "plates/home-water.webp",
+      "plates/gas.webp",
+      "plates/fire.webp",
+      "plates/industry.webp",
+      "plates/cooling.webp"
+    ],
+    "interaction": "Animated highlights and pointer hit areas follow image-specific pipe centre-lines; the separate 3D view uses original Three.js geometry."
+  }
+}

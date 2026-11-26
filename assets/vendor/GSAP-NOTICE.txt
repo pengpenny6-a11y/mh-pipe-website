@@ -1,0 +1,5 @@
+GSAP and ScrollTrigger 3.13.0
+Copyright GreenSock, Inc. All rights reserved.
+Original distribution headers retained in gsap.min.js and ScrollTrigger.min.js.
+Source: https://www.npmjs.com/package/gsap/v/3.13.0
+License and terms: https://gsap.com/standard-license/

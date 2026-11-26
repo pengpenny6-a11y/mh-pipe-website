@@ -1,0 +1,24 @@
+{
+  "asset": "neighborhood-road.png",
+  "type": "AI-generated illustrative miniature; not an installation drawing or actual facility",
+  "tool": "Built-in ImageGen",
+  "reference": "public/assets/hero-neighborhood/neighborhood.png",
+  "generatedSource": "/Users/penny/.codex/generated_images/01a1b585-1346-7020-afa4-de60014d50ef/exec-21dbf029-fa6d-4e52-a679-1f9847106da5.png",
+  "dimensions": {
+    "width": 1774,
+    "height": 887,
+    "alpha": true
+  },
+  "prompt": "Use case: precise-object-edit. Edit this existing transparent 1774x887 miniature architectural asset. Change ONLY the bare transparent foreground by adding a compact refined miniature service road. Keep all three buildings, floors, contents, architecture, size, camera, perspective, coordinates, lighting and colors EXACTLY unchanged. Left home warm kitchen, yellow exterior gas pipe, red fire cabinet; rear factory robot and worker; right glass data center. Preserve transparent background and existing 2:1 canvas/aspect. Road: pale silver-gray finely surfaced narrow two-lane service street, clearly visible thin white edge lines, sparse small broken white center markings. NOT a dark asphalt highway, no arrows, no traffic signs, no text. Match the isometric camera and elegant white/navy miniature style. The principal foreground straight road should run gently upward toward the right, in front of the buildings. Critical useful alignment: a small cart will be composited later with its wheels traveling from image coordinates (49% width,89% height) to (66.4% width,84.9% height); put the near lane of the road directly under this travel path. Extend the road to the left in front of the house floor pad and continue rightward in front of the data center, with modest curving continuation to the side edges. A small tasteful short access spur may lead back toward the factory entrance without covering any building or pad. Keep the street slender and visually secondary. Transparent void should remain between buildings and outside the narrow road and pads: NO solid rectangular floor, NO large blank island foundation, NO background color, NO horizon. Do NOT add any cart, car, driver, trees, characters, or other decoration. Deliver the complete transparent PNG architectural asset with the added road, about1774x887. Road must be sufficiently wide for a miniature service cart but not sprawling.",
+  "notes": "Only street/road added. Original neighborhood.png preserved. Tiny transparent-edge color artifacts seen on black preview disappear on intended pale-blue background. Reviewed composited version in outputs/application-scene-concepts/neighborhood-road-review.png.",
+  "recommendedNearLaneWheelCenters": [
+    {
+      "xPercent": 49,
+      "yPercent": 86.5
+    },
+    {
+      "xPercent": 66.4,
+      "yPercent": 84.5
+    }
+  ]
+}
