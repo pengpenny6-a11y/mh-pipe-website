@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {useLayoutEffect, useRef, useState} from 'react';
 import HeadingEnglish from './HeadingEnglish.jsx';
 import CompanyProfile from './CompanyProfile.jsx';
@@ -26,7 +27,7 @@ export function CompanyOverview({lang,go,full=false,onPhoto}){
   g.fromTo('.co-photo',{clipPath:'inset(0 10% 0 0)'},{clipPath:'inset(0 0% 0 0)',ease:'none',scrollTrigger:{trigger:root.current,start:'top 90%',end:'top 25%',scrub:1.05}});
  },root);return()=>ctx.revert()},[]);
  return <section className={'co-root'+(full?' co-full':'')} ref={root}>
-  <div className="co-intro"><Heading>{t(lang,<>Manufacturing<br/>since 2000.</>,<>岷河制造，<br/>始于2000年。</>)}<HeadingEnglish lang={lang}>Manufacturing since 2000</HeadingEnglish></Heading><div><CompanyProfile lang={lang}/>{!full&&<a href={'/company?lang='+lang} onClick={e=>internal(e,'/company',go)}>{t(lang,'Meet MH PIPE','了解岷河')}<span>+</span></a>}</div></div>
+  <div className="co-intro"><Heading>{t(lang,<>Manufacturing<br/>since 2000.</>,<>岷河制造，<br/>始于2000年。</>)}<HeadingEnglish lang={lang}>Manufacturing since 2000</HeadingEnglish></Heading><div><CompanyProfile lang={lang}/>{!full&&<a href={routeHref('/company',lang)} onClick={e=>internal(e,'/company',go)}>{t(lang,'Meet MH PIPE','了解岷河')}<span>+</span></a>}</div></div>
   <div className="co-campus"><figure className="co-photo">
     <img src={'/assets/company/'+facilityRendering.file} alt={facilityRendering.alt[lang]} width="1448" height="1086"/>
     <figcaption>{facilityRendering.caption[lang]}</figcaption>

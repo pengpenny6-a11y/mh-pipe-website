@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {useEffect, useRef, useState} from 'react';
 import {ArrowUpRight} from 'lucide-react';
 import HeadingEnglish from './HeadingEnglish.jsx';
@@ -54,7 +55,7 @@ export default function HomeContactAtlas({lang,go}) {
           </label>)}
         </fieldset>
         <p key={intent.id} className="mh-contact-intent-copy">{intent.copy[locale]}</p>
-        <a className="mh-contact-atlas-action" href={href} onClick={follow}>
+        <a className="mh-contact-atlas-action" href={routeHref(href)} onClick={follow}>
           {locale?'Start an enquiry':'填写询盘'}<ArrowUpRight size={18} aria-hidden="true"/>
         </a>
       </div>

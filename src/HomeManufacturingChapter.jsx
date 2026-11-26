@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {useEffect, useId, useLayoutEffect, useRef, useState} from 'react';
 import HeadingEnglish from './HeadingEnglish.jsx';
 import {ArrowUpRight, ChevronLeft, ChevronRight, Maximize2} from 'lucide-react';
@@ -189,7 +190,7 @@ export default function HomeManufacturingChapter({lang='en',go,onPhoto}) {
     <div className="hmf-workshop">
       <header className="hmf-header">
         <h2 id={id}>{zh?'工厂生产现场':'Factory floor'}<HeadingEnglish lang={lang}>Factory floor</HeadingEnglish></h2>
-        <a className="hmf-link" href={route} onClick={follow}>{zh?'了解制造工艺':'Explore manufacturing'}<ArrowUpRight size={18} aria-hidden="true"/></a>
+        <a className="hmf-link" href={routeHref(route)} onClick={follow}>{zh?'了解制造工艺':'Explore manufacturing'}<ArrowUpRight size={18} aria-hidden="true"/></a>
       </header>
       <WorkshopGallery lang={lang} onPhoto={onPhoto}/>
       <ProductionFigures zh={zh}/>

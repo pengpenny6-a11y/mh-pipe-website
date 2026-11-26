@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React,{useState,useRef,useLayoutEffect} from 'react';
 import {products} from './content.js';
 import './product-motion.css';
@@ -38,7 +39,7 @@ export function HeroTech({lang,go,onProduct}){
   <h1 className="hero-title"><span className="hero-title-line"><span>{txt(lang,'Stainless steel','不锈钢管道')}</span></span><span className="hero-title-line"><span>{txt(lang,'piping systems.','系统解决方案。')}</span></span></h1>
   <div className="hero-wordmark" aria-hidden="true"><span>MH PIPE</span></div>
   {['tee','coupling','pipe'].map((id,i)=>{const p=products.find(x=>x.id===id);return <button key={id} className={'hero-product '+['hero-primary','hero-secondary','hero-pipe'][i]} onClick={()=>onProduct(p)} aria-label={txt(lang,'Explore ','查看')+p.name[lang]}><span className="product-hover"><span className="hero-float"><img src={p.image} alt={p.name[lang]} fetchPriority={i===0?'high':'auto'} draggable="false"/></span></span><span className="product-caption">{p.name[lang]}<span>+</span></span></button>})}
-  <div className="hero-bottom"><a className="button primary" href={'/products?lang='+lang} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();go('/products')}}}>{txt(lang,'Explore products','探索产品')}</a></div>
+  <div className="hero-bottom"><a className="button primary" href={routeHref('/products',lang)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();go('/products')}}}>{txt(lang,'Explore products','探索产品')}</a></div>
  </section>
 }
 
@@ -86,7 +87,7 @@ export function ProductStage({lang,onProduct,onInquiry,go,full=false,expanded=fa
   <div className="ps-studio"><div className="ps-type" aria-hidden="true"><span ref={typeShift}>{active==='pipe'?'PIPE':'CONNECT'}</span></div><div className="ps-object-shell"><div className="ps-gesture" ref={gesture} role="group" aria-roledescription={txt(lang,'Product carousel','产品轮播')} tabIndex={0} aria-label={txt(lang,'Drag or use left and right arrow keys to switch products. Enter opens product details.','拖动或使用左右方向键切换产品，回车查看详情。')} onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={e=>pointerEnd(e,true)} onLostPointerCapture={e=>{if(drag.current)pointerEnd(e,true)}} onKeyDown={keyboard} onBlur={e=>e.currentTarget.removeAttribute('data-pointer-focus')}>
    <div className="ps-drag-plane" ref={plane}>{order.map(id=>{const item=products.find(x=>x.id===id);return <div key={id} className={'ps-product-layer'+(id===active?' ps-object':'')} data-product={id} aria-hidden={id!==active}><img className={id===active?'ps-current-image':undefined} src={item.image} alt={id===active?item.name[lang]:''} draggable="false"/></div>})}</div><span className="ps-drag-hint" aria-hidden="true">{txt(lang,'Drag to explore','拖动切换')}</span></div></div><div className="ps-product-name"><button className="ps-details" onClick={()=>onProduct(p)}>{p.name[lang]}<span>+</span></button></div></div>
   <div className="ps-controls" role="group" aria-label={txt(lang,'Product forms','产品类型')}>{order.map(id=><button key={id} aria-pressed={active===id} onClick={()=>select(id)}><span>{labels[id]}</span><span>{active===id?'−':'+'}</span></button>)}</div>
-  {!full&&<div className="ps-bottom"><a href={'/products?lang='+lang} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();go('/products')}}}>{txt(lang,'All products','全部产品')} +</a></div>}
+  {!full&&<div className="ps-bottom"><a href={routeHref('/products',lang)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();go('/products')}}}>{txt(lang,'All products','全部产品')} +</a></div>}
   {full&&!expanded&&<div className="ps-bottom"><button onClick={()=>onInquiry({interest:txt(lang,'Please share the ring-press product range and drawings.','请提供环压产品目录与图纸。')})}>{txt(lang,'Request ring-press range','索取环压产品目录')} +</button></div>}
   {full&&!expanded&&<div className="catalogue">{products.map(p=><button className="catalogue-item" key={p.id} onClick={()=>onProduct(p)}><img src={p.image} alt={p.name[lang]} loading="lazy"/><div><h2>{p.name[lang]}</h2><span>+</span></div><p>{p.description[lang]}</p></button>)}</div>}
  </section>
@@ -98,6 +99,6 @@ export function ContactTech({lang,items,onOpen,go,full=false,expanded=false}){
  return <section className={'ct-root'+(full?' ct-full':'')} ref={root}>
   <div className="ct-word"><Heading>{txt(lang,<>Build the next<br/>connection.</>,<>下一次连接，<br/>从这里开始。</>)}</Heading><p>{txt(lang,'For distributors, importers and project partners.','面向经销商、进口商与工程合作伙伴。')}</p></div>
   <img className="ct-pipe" src="/assets/products/pipe.png" alt="" aria-hidden="true"/>
-  <div className="ct-actions"><button onClick={()=>onOpen()}>{txt(lang,'Discuss your requirements','沟通您的需求')}<span>+</span></button><a href={'/products?lang='+lang} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();go('/products')}}}>{txt(lang,'Build your product list','整理产品清单')}<span>+</span></a></div>
+  <div className="ct-actions"><button onClick={()=>onOpen()}>{txt(lang,'Discuss your requirements','沟通您的需求')}<span>+</span></button><a href={routeHref('/products',lang)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();go('/products')}}}>{txt(lang,'Build your product list','整理产品清单')}<span>+</span></a></div>
  </section>
 }

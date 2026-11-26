@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import './manufacturing-story.css';
 
@@ -205,7 +206,7 @@ export default function ManufacturingStory({ lang = 'en', go, onPhoto }) {
         </h2>
         <div className="ms-header-note">
           <p>{text('Inside MH PIPE manufacturing.', '走进岷河制造。')}</p>
-          <a href={`/manufacturing?lang=${language}`} onClick={navigate}>{text('Explore the factory', '了解制造现场')}<span aria-hidden="true">＋</span></a>
+          <a href={routeHref('/manufacturing',language)} onClick={navigate}>{text('Explore the factory', '了解制造现场')}<span aria-hidden="true">＋</span></a>
         </div>
       </header>
 

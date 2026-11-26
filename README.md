@@ -2,6 +2,8 @@
 
 Bilingual manufacturer website for Sichuan Minhe Pipeline Construction Engineering Co., Ltd. The homepage introduces the piping systems and applications, company, workshops and laboratory, projects, partners, news, services and enquiry options.
 
+[中文官网](https://pengpenny6-a11y.github.io/mh-pipe-website/?lang=zh) · [English website](https://pengpenny6-a11y.github.io/mh-pipe-website/?lang=en)
+
 ## Run locally
 
 Use Node.js 22.13 or newer.
@@ -21,6 +23,10 @@ npm run test:sites
 ```
 
 The repository includes the React source, Vite configuration, server-side enquiry handler, fonts, photography, 3D resources and downloadable literature. Set service credentials in the hosting environment. Previous design reviews below refer to local working material.
+
+## GitHub Pages
+
+Run `npm run build:pages` to generate `dist/pages/` for the repository URL above. Publish the contents of that directory at the root of the `gh-pages` branch. Source code lives on `main`. Each site route has its own HTML entry for direct visits and reloads. Visitors can open an email draft or download their enquiry on this static host.
 
 <details>
 <summary>Earlier design and implementation notes</summary>

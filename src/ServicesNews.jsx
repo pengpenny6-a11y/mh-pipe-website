@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {useLayoutEffect, useRef, useState} from 'react';
 import HeadingEnglish from './HeadingEnglish.jsx';
 import {company} from './CompanyTech.jsx';
@@ -107,7 +108,7 @@ export function ServicesPage({lang,go,onInquiry,onPhoto}){
   <ServiceResources lang={lang}/>
   <ServiceQuestions lang={lang}/>
   <TechnicalBrief lang={lang} onInquiry={onInquiry}/>
-  <section className="ss-contact-note"><h2>{t(lang,'Direct contact','直接联系')}<HeadingEnglish lang={lang}>Direct contact</HeadingEnglish></h2><div><p>{t(lang,'For importers, distributors and project teams.','面向进口商、经销商与工程团队。')}</p><a href={'mailto:'+company.email}>{company.email}</a></div><a className="ss-range-link" href={'/products?lang='+lang} onClick={e=>internal(e,'/products',go)}>{t(lang,'Browse the product range','浏览产品系列')}</a></section>
+  <section className="ss-contact-note"><h2>{t(lang,'Direct contact','直接联系')}<HeadingEnglish lang={lang}>Direct contact</HeadingEnglish></h2><div><p>{t(lang,'For importers, distributors and project teams.','面向进口商、经销商与工程团队。')}</p><a href={'mailto:'+company.email}>{company.email}</a></div><a className="ss-range-link" href={routeHref('/products',lang)} onClick={e=>internal(e,'/products',go)}>{t(lang,'Browse the product range','浏览产品系列')}</a></section>
  </div>;
 }
 
@@ -136,7 +137,7 @@ export function NewsPage({lang,go,onPhoto}){
   </article>
   <div className="nw-editorial">
    <article className="nw-library"><a className="nw-document-visual" href={brochure} target="_blank" rel="noreferrer" aria-label={t(lang,'Open the company brochure PDF','打开公司画册PDF')}><span className="nw-paper-type" aria-hidden="true">MH</span><img className="nw-document-image" src="/assets/company/brochure-cover-2024.png" alt={t(lang,'2024 MH PIPE company brochure cover','2024版岷河公司画册封面')} loading="lazy"/></a><div className="nw-article-meta"><span>{t(lang,'Company literature','企业资料')}</span><span>{t(lang,'2024 edition','2024版')}</span></div><h2>{t(lang,'The company, in detail.','一本画册，了解岷河。')}<HeadingEnglish lang={lang}>The company, in detail</HeadingEnglish></h2><p>{t(lang,'Products, manufacturing and inspection in the company brochure. Available in Chinese.','企业介绍、产品系列与制造检测资料。中文版本。')}</p><a className="nw-article-link" href={brochure} target="_blank" rel="noreferrer">{t(lang,'Open brochure','打开画册')}<span>PDF</span></a></article>
-   <article className="nw-manufacturing"><button className="nw-factory-visual" data-cursor="view" aria-label={t(lang,'Enlarge the factory photograph','放大厂区实拍')} onClick={()=>onPhoto?.('factory.webp')}><img className="nw-factory-image" src="/assets/company/factory.webp" alt={t(lang,'MH PIPE manufacturing facility in Meishan','岷河眉山制造厂区')} loading="lazy"/></button><div className="nw-article-meta"><span>{t(lang,'Manufacturing','制造实录')}</span><span>{t(lang,'Meishan, Sichuan','四川眉山')}</span></div><h2>{t(lang,'Where the product takes shape.','走进产品诞生的地方。')}<HeadingEnglish lang={lang}>Where the product takes shape</HeadingEnglish></h2><p>{t(lang,'Explore company photographs of production and inspection equipment.','通过企业实拍，了解生产与检验设备。')}</p><a className="nw-article-link" href={'/manufacturing?lang='+lang} onClick={e=>internal(e,'/manufacturing',go)}>{t(lang,'Explore manufacturing','走近制造')}<span aria-hidden="true">+</span></a></article>
+   <article className="nw-manufacturing"><button className="nw-factory-visual" data-cursor="view" aria-label={t(lang,'Enlarge the factory photograph','放大厂区实拍')} onClick={()=>onPhoto?.('factory.webp')}><img className="nw-factory-image" src="/assets/company/factory.webp" alt={t(lang,'MH PIPE manufacturing facility in Meishan','岷河眉山制造厂区')} loading="lazy"/></button><div className="nw-article-meta"><span>{t(lang,'Manufacturing','制造实录')}</span><span>{t(lang,'Meishan, Sichuan','四川眉山')}</span></div><h2>{t(lang,'Where the product takes shape.','走进产品诞生的地方。')}<HeadingEnglish lang={lang}>Where the product takes shape</HeadingEnglish></h2><p>{t(lang,'Explore company photographs of production and inspection equipment.','通过企业实拍，了解生产与检验设备。')}</p><a className="nw-article-link" href={routeHref('/manufacturing',lang)} onClick={e=>internal(e,'/manufacturing',go)}>{t(lang,'Explore manufacturing','走近制造')}<span aria-hidden="true">+</span></a></article>
   </div>
  </div>;
 }

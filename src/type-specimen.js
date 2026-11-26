@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 const examples = [
   {role:'heading', label:'页面与板块标题', zh:'关于我们', en:'About MH PIPE'},
   {role:'lead', label:'导语', zh:'从制造，到工程配套。', en:'From manufacturing to project supply.'},
@@ -31,7 +32,7 @@ for (const item of examples) {
       translation.textContent = item.en;
       element.append(translation);
     }
-    if (item.path) element.href = item.path + '?lang=' + lang;
+    if (item.path) element.href = routeHref(item.path, lang);
     const detail = document.createElement('small');
     detail.className = 'metrics';
     cell.append(element, detail);

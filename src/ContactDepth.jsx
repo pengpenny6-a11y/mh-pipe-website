@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import HeadingEnglish from './HeadingEnglish.jsx';
 import {company} from './CompanyTech.jsx';
@@ -118,8 +119,8 @@ export function ContactPage({lang,onInquiry,go}){
     </form>
    </div>
   </section>
-  <section className="cd-location"><div className="cd-location-copy"><h2>{t(lang,'Company address','公司地址')}<HeadingEnglish lang={lang}>Company address</HeadingEnglish></h2><p className="cd-company-name">{company.name[lang]}</p><address>{company.address[lang]}</address><div className="cd-channel-actions"><button onClick={()=>copy(company.address[lang],'address')}>{copied==='address'?t(lang,'Address copied','地址已复制'):t(lang,'Copy address','复制地址')}</button><button onClick={()=>copy(company.email,'email')}>{copied==='email'?t(lang,'Email copied','邮箱已复制'):t(lang,'Copy email','复制邮箱')}</button></div>{copied==='failed'&&<p role="status">{t(lang,'Please select and copy the contact details above.','请选中上方联系信息进行复制。')}</p>}<a href={'/company?lang='+lang} onClick={e=>internal(e,'/company',go)}>{t(lang,'Learn about MH PIPE','了解岷河')}<span aria-hidden="true">+</span></a></div><figure className="cd-location-photo"><img src="/assets/company/factory-front.webp" alt={t(lang,'MH PIPE office and factory entrance','岷河办公楼与厂区入口')} loading="lazy"/><figcaption>{t(lang,'Company photograph','企业实拍')}</figcaption></figure></section>
-  <div className="cd-help-links"><a href={'/services?lang='+lang+'#resources'} onClick={e=>internal(e,'/services#resources',go)}>{t(lang,'Documents & service resources','资料与服务资源')}</a><button onClick={()=>onInquiry?.()}>{t(lang,'Review your product inquiry','查看产品询盘清单')}</button></div>
+  <section className="cd-location"><div className="cd-location-copy"><h2>{t(lang,'Company address','公司地址')}<HeadingEnglish lang={lang}>Company address</HeadingEnglish></h2><p className="cd-company-name">{company.name[lang]}</p><address>{company.address[lang]}</address><div className="cd-channel-actions"><button onClick={()=>copy(company.address[lang],'address')}>{copied==='address'?t(lang,'Address copied','地址已复制'):t(lang,'Copy address','复制地址')}</button><button onClick={()=>copy(company.email,'email')}>{copied==='email'?t(lang,'Email copied','邮箱已复制'):t(lang,'Copy email','复制邮箱')}</button></div>{copied==='failed'&&<p role="status">{t(lang,'Please select and copy the contact details above.','请选中上方联系信息进行复制。')}</p>}<a href={routeHref('/company',lang)} onClick={e=>internal(e,'/company',go)}>{t(lang,'Learn about MH PIPE','了解岷河')}<span aria-hidden="true">+</span></a></div><figure className="cd-location-photo"><img src="/assets/company/factory-front.webp" alt={t(lang,'MH PIPE office and factory entrance','岷河办公楼与厂区入口')} loading="lazy"/><figcaption>{t(lang,'Company photograph','企业实拍')}</figcaption></figure></section>
+  <div className="cd-help-links"><a href={routeHref('/services#resources',lang)} onClick={e=>internal(e,'/services#resources',go)}>{t(lang,'Documents & service resources','资料与服务资源')}</a><button onClick={()=>onInquiry?.()}>{t(lang,'Review your product inquiry','查看产品询盘清单')}</button></div>
  </div>;
 }
 

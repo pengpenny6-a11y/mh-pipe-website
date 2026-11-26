@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React from 'react';
 import {ArrowDownToLine, ArrowUp} from 'lucide-react';
 import {company} from './CompanyTech.jsx';
@@ -20,7 +21,7 @@ const publications = [
 
 export default function HomeDirectory({lang,go}) {
   const zh = lang==='zh';
-  const href = path => path+'?lang='+lang;
+  const href = path => routeHref(path, lang);
   function follow(event) {
     if (event.button!==0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
     event.preventDefault();

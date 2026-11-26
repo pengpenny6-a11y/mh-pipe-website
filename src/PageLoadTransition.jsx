@@ -1,3 +1,4 @@
+import {routePathname} from './site-routes.js';
 import React,{useLayoutEffect,useRef,useState} from 'react';
 import {flushSync} from 'react-dom';
 import PageLoadMark from './PageLoadMark.jsx';
@@ -69,7 +70,7 @@ export default function PageLoadTransition({enabled=true,lang='en'}){
    const run={cancel(){abort.abort();animations.forEach(a=>a.kill())},skip(){fast=true;skipped();animations.forEach(a=>a.progress(1))}};
    active.current=run;acquire();
    const current=()=>!disposed&&!abort.signal.aborted&&ticket===sequence.current;
-   const language=options.lang||languageRef.current,path=(options.path||location.pathname).replace(/\/$/,'')||'/';
+   const language=options.lang||languageRef.current,path=options.path||routePathname();
    const label=(labels[path]||labels['/contact'])[language==='zh'?1:0];
    flushSync(()=>setView({phase:'covering',label,lang:language}));
    const cover=element.querySelector('.pl-cover'),caption=element.querySelector('.pl-center');

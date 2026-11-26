@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {useId, useRef, useState} from 'react';
 import HeadingEnglish from './HeadingEnglish.jsx';
 import {ArrowUpRight} from 'lucide-react';
@@ -94,7 +95,7 @@ export default function HomeProductChapter({lang = 'en', go, onProduct, entryFor
           {item.shortName[lang]}
         </button>)}
       </div>
-      <a className="series-catalog" href={url} onClick={browse}>{catalogLabel} <ArrowUpRight aria-hidden="true"/></a>
+      <a className="series-catalog" href={routeHref(url)} onClick={browse}>{catalogLabel} <ArrowUpRight aria-hidden="true"/></a>
     </header>
     <div ref={stage} className="series-studio" role="tabpanel" id={panelId} aria-labelledby={panelId+'-'+series.id}
         data-overview={!active} onKeyDown={studioKey}

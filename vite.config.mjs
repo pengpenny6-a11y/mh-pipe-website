@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import { publicAssetPaths } from "./scripts/public-asset-paths.mjs";
 import react from "@vitejs/plugin-react";
 import { Readable } from "node:stream";
 import { handleInquiry } from "./worker/inquiries.js";
@@ -18,9 +19,10 @@ function inquiryPreview(server) {
   });
 }
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === "github-pages" ? "/mh-pipe-website/" : "/",
   build: {
-    outDir: "dist/client",
+    outDir: mode === "github-pages" ? "dist/pages" : "dist/client",
     rolldownOptions: {input:["index.html","typography.html"]},
   },
   optimizeDeps: {
@@ -33,5 +35,5 @@ export default defineConfig({
       clientFiles: ["./src/main.jsx"],
     },
   },
-  plugins: [react(), {name:"inquiry-preview", configureServer:inquiryPreview, configurePreviewServer:inquiryPreview}],
-});
+  plugins: [publicAssetPaths(), react(), {name:"inquiry-preview", configureServer:inquiryPreview, configurePreviewServer:inquiryPreview}],
+}));

@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React,{useEffect,useLayoutEffect,useRef,useState} from 'react';
 import HeadingEnglish from './HeadingEnglish.jsx';
 import './manufacturing-depth.css';
@@ -21,6 +22,6 @@ export default function ManufacturingDepth({lang='en',go,onPhoto,onInquiry}){
    <button className="md-photo" onClick={()=>onPhoto?.(view.id+'.webp')} data-cursor="view" aria-label={(l?'放大实拍：':'Enlarge photograph: ')+view.title[l]}><img key={view.id} src={'/assets/company/'+view.id+'.webp'} alt={view.title[l]} loading="lazy"/><span>{l?'查看企业实拍':'View company photograph'}</span></button>
    <div className="md-stage-copy" key={view.id+'copy'}><h3>{view.title[l]}<HeadingEnglish lang={lang}>{view.title[0]}</HeadingEnglish></h3><p>{view.body[l]}</p><div className="md-questions"><h4>{l?'沟通时，重点核对':'Discuss with us'}</h4><ul>{view.fields.map(field=><li key={field[0]}>{field[l]}</li>)}</ul></div><button className="md-inquiry" onClick={inquiry}>{l?'沟通相关要求':'Discuss these requirements'}</button></div>
   </div>
-  <div className="md-records"><h3>{l?'让检验要求进入订单。':'Define inspection before the order.'}<HeadingEnglish lang={lang}>Define inspection before the order</HeadingEnglish></h3><p>{l?'所需项目、抽样范围、验收依据及报告形式，建议在询盘阶段一并提出。现场照片展示设备与工作环境；具体产品的检验安排按订单核对。':'Specify the tests, sampling scope, acceptance basis and document format during the inquiry. These photographs show equipment and the working environment; inspection arrangements are confirmed for the actual order.'}</p><a href={'/services?lang='+lang} onClick={e=>{if(go&&e.button===0&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();go('/services')}}}>{l?'了解资料与服务支持':'Explore document and service support'}</a></div>
+  <div className="md-records"><h3>{l?'让检验要求进入订单。':'Define inspection before the order.'}<HeadingEnglish lang={lang}>Define inspection before the order</HeadingEnglish></h3><p>{l?'所需项目、抽样范围、验收依据及报告形式，建议在询盘阶段一并提出。现场照片展示设备与工作环境；具体产品的检验安排按订单核对。':'Specify the tests, sampling scope, acceptance basis and document format during the inquiry. These photographs show equipment and the working environment; inspection arrangements are confirmed for the actual order.'}</p><a href={routeHref('/services',lang)} onClick={e=>{if(go&&e.button===0&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();go('/services')}}}>{l?'了解资料与服务支持':'Explore document and service support'}</a></div>
  </section>;
 }

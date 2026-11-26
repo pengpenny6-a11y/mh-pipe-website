@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {lazy, Suspense, useCallback, useEffect, useId, useRef, useState} from 'react';
 import HeadingEnglish from './HeadingEnglish.jsx';
 import ApplicationSceneRail from './ApplicationSceneRail.jsx';
@@ -245,7 +246,7 @@ export default function SpatialApplications({lang='en', go, sceneRequest, onScen
           </div>
           <p className="app-copy">{current.copy[lang]}</p>
         </div>
-        <a className="app-solution" href={link} onPointerEnter={()=>setLinkHover(true)} onPointerLeave={()=>setLinkHover(false)}
+        <a className="app-solution" href={routeHref(link)} onPointerEnter={()=>setLinkHover(true)} onPointerLeave={()=>setLinkHover(false)}
            onClick={e=>{if(go&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey&&e.button===0){e.preventDefault();go(destination(frame.id));}}}>
           {zh?'了解方案':'View solution'}
         </a>

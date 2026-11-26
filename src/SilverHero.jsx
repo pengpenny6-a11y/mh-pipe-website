@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React,{useLayoutEffect,useRef} from 'react';
 import PrecisionProduct from './PrecisionProduct.jsx';
 import openPreview from './assets/banner-open-preview.webp?inline';
@@ -6,7 +7,7 @@ import './silver-hero.css';
 
 export default function SilverHero({lang='en',go}){
  const root=useRef(null),entrance=useRef({progress:1,complete:false}),zh=lang==='zh';
- const href=path=>{const url=new URL(path,location.origin);url.searchParams.set('lang',lang);return url.pathname+url.search};
+  const href=path=>routeHref(path,lang);
  const follow=(event,path)=>{if(go&&event.button===0&&!event.metaKey&&!event.ctrlKey&&!event.shiftKey&&!event.altKey){event.preventDefault();go(path)}};
  useLayoutEffect(()=>{
   const el=root.current,g=window.gsap;

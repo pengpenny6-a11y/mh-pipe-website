@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import HeadingEnglish from './HeadingEnglish.jsx';
 import {ArrowUpRight, Check, FileText, Plus} from 'lucide-react';
@@ -185,7 +186,7 @@ export default function ProductDepth({lang = 'en', onProduct, onInquiry, go}) {
           <div className="pd-brief-forms" aria-live="polite">{chosen.map(p => <span key={p.id}>{p.name[lang]}<Check size={16}/></span>)}</div>
           <p className="pd-fit-note">{t(lang,'Include the required dimensions, material and operating conditions.','可附上所需尺寸、材质与使用条件。')}</p>
           <button className="pd-submit" type="submit">{t(lang,'Prepare an enquiry','生成询盘需求')}<ArrowUpRight size={24}/></button>
-          <a href={'/services?lang='+lang} onClick={e => {if (e.button===0 && !e.metaKey && !e.ctrlKey && !e.altKey && !e.shiftKey) {e.preventDefault(); go('/services');}}}>{t(lang,'Technical support & resources','技术支持与资料')}<ArrowUpRight size={18}/></a>
+          <a href={routeHref('/services',lang)} onClick={e => {if (e.button===0 && !e.metaKey && !e.ctrlKey && !e.altKey && !e.shiftKey) {e.preventDefault(); go('/services');}}}>{t(lang,'Technical support & resources','技术支持与资料')}<ArrowUpRight size={18}/></a>
         </aside>
       </form>
     </section>

@@ -1,3 +1,4 @@
+import {routeHref} from '../site-routes.js';
 import markup from './chapter.html?raw';
 import css from './chapter.css?inline';
 
@@ -83,7 +84,7 @@ export function mountArchive(root,{lang,embedded=false,onNavigate}){
     const source=el('event-source');
     source.hidden=!item.url;
     if(item.url){
-      source.href=item.url.replace('LANG',locale?'en':'zh');
+      source.href=item.url.startsWith('/') ? routeHref(item.url, locale?'en':'zh') : item.url;
       source.textContent=item.action[locale];
       if(item.url.startsWith('https:')){source.target='_blank';source.rel='noopener noreferrer';}else source.removeAttribute('target');
     } else source.removeAttribute('href');
@@ -95,7 +96,7 @@ export function mountArchive(root,{lang,embedded=false,onNavigate}){
     const company=el('company-link');
     company.hidden=!embedded;
     company.textContent=local('企业概况','Company profile');
-    company.href='/company?lang='+(locale?'en':'zh');
+    company.href=routeHref('/company',locale?'en':'zh');
     el('locale').textContent=local('EN','中文');el('locale').setAttribute('aria-label',local('English','简体中文'));
     el('intro-title').textContent=local('关于我们','About MH PIPE');
     el('intro-copy').textContent=local('岷河制造不锈钢管材与管件，产品涵盖双卡压、环压与厚壁管路系列。','MH PIPE manufactures stainless steel pipe and fittings for double-press, ring-press and thick-wall systems.');

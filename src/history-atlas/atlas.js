@@ -1,3 +1,4 @@
+import {routeHref} from '../site-routes.js';
 import worldLand from './world-land.svg?url';
 import './atlas.css';
 
@@ -122,7 +123,7 @@ export function mountAtlas(host, {lang='en', onInquire}={}) {
     links.forEach(({link,caption},i)=>{
       const name=markets[i].name[locale];
       const query=new URLSearchParams({intent:'distribution',market:name,lang:locale?'en':'zh'});
-      link.href='/contact?'+query.toString()+'#contact-inquiry';
+      link.href=routeHref('/contact?'+query.toString()+'#contact-inquiry');
       link.setAttribute('aria-label',locale?'Discuss distribution in '+name:name+'经销合作咨询');
       caption.textContent=name;
     });

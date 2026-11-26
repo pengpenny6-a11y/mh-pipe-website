@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {useLayoutEffect, useRef, useState} from 'react';
 import PrecisionProduct from './PrecisionProduct.jsx';
 import {scenes} from './content.js';
@@ -33,7 +34,7 @@ export default function CinematicHero({lang='en',go}) {
     if(!go||event.button!==0||event.metaKey||event.ctrlKey||event.altKey||event.shiftKey)return;
     event.preventDefault();go(to);
   }
-  const href=to=>{const url=new URL(to,location.origin);url.searchParams.set('lang',lang);return url.pathname+url.search};
+  const href=to=>routeHref(to,lang);
 
   return <section className="ph-hero cinema-hero" ref={root} aria-labelledby="cinema-title">
     <div className="ph-cinema-stage"><PrecisionProduct lang={lang} exploded presentation="cinematic" fallbackImage="/assets/products/cinematic-assembly.webp"/></div>

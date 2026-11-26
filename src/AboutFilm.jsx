@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import {ChevronLeft, ChevronRight} from 'lucide-react';
 import HeadingEnglish from './HeadingEnglish.jsx';
@@ -133,7 +134,7 @@ export default function AboutFilm({lang,go,onPhoto}) {
         </div>
       </div>
       <div className="mh-film-actions">
-        {index===0 ? <a href={detailsUrl} onClick={company}>{ctaContent(zh?'查看发展历程':'Explore our history')}</a>
+        {index===0 ? <a href={routeHref(detailsUrl)} onClick={company}>{ctaContent(zh?'查看发展历程':'Explore our history')}</a>
           : index===1 ? <button type="button" aria-haspopup="dialog" onClick={()=>onPhoto(facilityRendering.file)}>{ctaContent(zh?'查看厂区全景':'View campus rendering')}</button>
           : <a href="/downloads/minhe-company-brochure-2024-zh.pdf" target="_blank" rel="noopener noreferrer">{ctaContent(zh?'阅读企业画册':'Company brochure (Chinese PDF)')}</a>}
       </div>

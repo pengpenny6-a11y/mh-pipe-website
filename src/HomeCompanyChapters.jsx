@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React from 'react';
 import HeadingEnglish from './HeadingEnglish.jsx';
 import AboutFilm from './AboutFilm.jsx';
@@ -31,7 +32,7 @@ export function HomeSupportChapter({lang,go}) {
       <nav aria-label={l?'Project support':'项目服务'}>
         {support.map(({id,icon:Icon,title,description})=>{
           const url='/services?stage='+id+'&lang='+lang+'#service-detail';
-          return <a className="mh-support-link" key={id} href={url} onClick={e=>navigate(e,url,go)}>
+          return <a className="mh-support-link" key={id} href={routeHref(url)} onClick={e=>navigate(e,url,go)}>
             <span className="mh-support-symbol"><Icon aria-hidden="true"/></span>
             <strong>{title[l]}</strong><span className="mh-support-copy">{description[l]}</span>
           </a>;

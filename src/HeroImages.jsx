@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React,{useLayoutEffect,useRef} from 'react';
 import './hero-images.css';
 
@@ -34,7 +35,7 @@ export default function HeroImages({lang='en',go}){
   },root);
   return()=>context.revert();
  },[]);
- function href(path){const url=new URL(path,location.origin);url.searchParams.set('lang',lang);return url.pathname+url.search}
+ function href(path){return routeHref(path,lang)}
  function follow(e,path){if(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();go(path)}
  return <div className="phi-root" ref={root}>
   {images.map(item=><div className={'phi-slot phi-'+item.id} key={item.id}><div className="phi-depth"><a className="phi-window" href={href(item.path)} onClick={e=>follow(e,item.path)} aria-label={item.label[lang]}><span className="phi-photo"><img src={item.src} alt="" draggable="false" decoding="async"/></span><span className="phi-caption" aria-hidden="true">{item[lang]}</span></a></div></div>)}

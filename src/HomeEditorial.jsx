@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {useLayoutEffect, useRef} from 'react';
 import {ArrowRight, ArrowUp, ArrowUpRight, FileDown} from 'lucide-react';
 import HeadingEnglish from './HeadingEnglish.jsx';
@@ -7,9 +8,7 @@ import {reducedMotion} from './site-motion.js';
 import './home-editorial.css';
 
 function RouteLink({to, lang, go, children, ...props}) {
-  const url = new URL(to, location.origin);
-  url.searchParams.set('lang', lang);
-  const href = url.pathname + url.search + url.hash;
+  const href = routeHref(to, lang);
   return <a href={href} {...props} onClick={event => {
     if (event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
       event.preventDefault();

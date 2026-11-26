@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {useEffect, useRef, useState} from 'react';
 import {createPortal} from 'react-dom';
 import {ArrowRight, ArrowUpRight, ChevronRight} from 'lucide-react';
@@ -60,7 +61,7 @@ function NewsDate({date, lang}) {
 
 function NewsLink({lang, go, hash='', children, ...props}) {
   const href = '/news?lang=' + lang + hash;
-  return <a href={href} {...props} onClick={event => {
+  return <a href={routeHref(href)} {...props} onClick={event => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
     event.preventDefault();
     go(href);

@@ -1,6 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 
 const endpoint = '/api/inquiries';
+const emailOnly = import.meta.env.MODE === 'github-pages';
 const attemptKey = 'mh-inquiry-attempt-v1';
 
 // Keep the key across a reload after an interrupted network response. Only a
@@ -20,11 +21,12 @@ async function submissionKey(body, memory) {
 }
 
 export function useInquiryDelivery() {
-  const [channel, setChannel] = useState('checking');
+  const [channel, setChannel] = useState(emailOnly ? 'email' : 'checking');
   const [result, setResult] = useState({state:'idle'});
   const busy = useRef(false), memory = useRef(null);
 
   useEffect(()=>{
+    if (emailOnly) return;
     let live = true;
     fetch(endpoint, {headers:{Accept:'application/json'}, cache:'no-store', signal:AbortSignal.timeout(4500)})
       .then(response=>response.ok ? response.json() : null)
@@ -34,7 +36,7 @@ export function useInquiryDelivery() {
   },[]);
 
   async function submit(payload) {
-    if (busy.current) return;
+    if (emailOnly || busy.current) return;
     busy.current = true;
     setResult({state:'sending'});
     try {

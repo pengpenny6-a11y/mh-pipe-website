@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import HeadingEnglish from './HeadingEnglish.jsx';
 import './manufacturing-tech.css';
@@ -194,7 +195,7 @@ export default function ManufacturingTech({ lang = 'en', onPhoto, go, full = fal
         </Heading>
         <div className="mf-introduction">
           <p>{text('From the production floor to the laboratory.', '从生产车间，到检验现场。')}</p>
-          {!full && <a className="mf-link" href={`/manufacturing?lang=${language}`} onClick={event => navigate(event, '/manufacturing')}>{text('Manufacturing process', '制造流程')}<span className="mf-link-mark" aria-hidden="true">+</span></a>}
+          {!full && <a className="mf-link" href={routeHref('/manufacturing',language)} onClick={event => navigate(event, '/manufacturing')}>{text('Manufacturing process', '制造流程')}<span className="mf-link-mark" aria-hidden="true">+</span></a>}
         </div>
       </div>
 

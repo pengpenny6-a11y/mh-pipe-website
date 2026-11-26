@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, {useEffect, useId, useLayoutEffect, useRef, useState} from 'react';
 import {ArrowUpRight, ArrowLeft} from 'lucide-react';
 import {scenes as originalScenes} from './content.js';
@@ -245,7 +246,7 @@ export default function PrecisionApplications({lang='en',go,sceneRequest}){
     <div className="pa-description"><h3>{selected.name[lang]}</h3><p>{selected.description[lang]}</p></div>
     <div className="pa-actions">
      {pipeAvailable&&<button className="pa-pipe-toggle" aria-pressed={pipework} onClick={()=>setPipework(value=>!value)}>{pipework?text(lang,'Show the space','查看场景'):text(lang,'View pipework','查看管路')}</button>}
-     <a className="pa-solution-link" href={sceneSolution(active)+'&lang='+lang} onClick={openSolution}>{text(lang,'Explore solution','探索解决方案')}<ArrowUpRight size={23} strokeWidth={1.6}/></a>
+     <a className="pa-solution-link" href={routeHref(sceneSolution(active),lang)} onClick={openSolution}>{text(lang,'Explore solution','探索解决方案')}<ArrowUpRight size={23} strokeWidth={1.6}/></a>
     </div>
    </>:<span className="pa-note">{text(lang,'Illustrative application environments','应用场景示意')}</span>}
   </div>

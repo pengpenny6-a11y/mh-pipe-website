@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import './precision-manufacturing.css';
 
@@ -161,7 +162,7 @@ export default function PrecisionManufacturing({ lang = 'en', onPhoto, go }) {
      </button>
     </div>
     <div className="pm-gallery-row">
-     <div className="pm-gallery-entry"><p>{zh ? '生产现场实拍' : 'From the factory floor'}</p><a className="pm-more" href={`/manufacturing?lang=${zh ? 'zh' : 'en'}`} onClick={navigate}><span>{zh ? '走进制造现场' : 'Inside manufacturing'}</span></a></div>
+     <div className="pm-gallery-entry"><p>{zh ? '生产现场实拍' : 'From the factory floor'}</p><a className="pm-more" href={routeHref('/manufacturing',zh ? 'zh' : 'en')} onClick={navigate}><span>{zh ? '走进制造现场' : 'Inside manufacturing'}</span></a></div>
      <div className="pm-film" ref={film} onPointerLeave={leaveFilm} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) select(-1); }} onKeyDown={moveFocus} aria-label={zh ? '制造现场实拍' : 'Photographs from the factory floor'} data-pm-selected={selected}>
       {chapters.map((chapter, index) => <button className={`pm-shot${selected === index ? ' pm-shot-selected' : ''}`} key={chapter.id} type="button" onPointerEnter={event => { if (event.pointerType !== 'touch') select(index); }} onFocus={() => select(index)} onClick={() => onPhoto?.(chapter.file)} aria-label={zh ? `查看${chapter.title.zh}现场照片：${chapter.caption.zh}` : `View ${chapter.title.en.toLowerCase()} photograph: ${chapter.caption.en}`}>
         <img src={`/assets/company/${chapter.file}`} alt="" aria-hidden="true" loading="lazy" decoding="async" style={{ objectPosition: chapter.position }} />

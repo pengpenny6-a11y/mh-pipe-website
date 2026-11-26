@@ -1,3 +1,4 @@
+import {routeHref} from './site-routes.js';
 import React,{useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {ChevronDown,ArrowUpRight,Minus,Menu,X} from 'lucide-react';
 import {entries,catalogue} from './navigation-content.js';
@@ -18,7 +19,7 @@ export default function SiteNavigation({lang='en',route='/',go,onLanguage,onInqu
   const shown=present||'products',items=catalogue[shown],chosen=items.find(i=>i.id===choice)||items[0];
   const entry=entries.find(e=>e[3]===shown);
   const allPath=shown==='products'?'/products#product-selection':entry[0];
-  const href=path=>{const u=new URL(path,location.origin);u.searchParams.set('lang',lang);return u.pathname+u.search+u.hash;};
+  const href=path=>routeHref(path,lang);
   function cancelIntent(){clearTimeout(openTimer.current);clearTimeout(closeTimer.current);pendingIntent.current=null;}
   function close(returnFocus=false){cancelIntent();openRef.current=null;mobileRef.current=false;setOpen(null);setMobile(false);if(returnFocus)restore.current?.focus({preventScroll:true});}
   function show(type,trigger,keyboard=false){
